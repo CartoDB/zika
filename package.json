@@ -19,7 +19,7 @@
     "gist": "echo 'Mapping progression, risk factors, and response to the Zika virus' > '..zika' && gistup && gistup-rename 'zika - Mapping progression, risk factors, and response to the Zika virus'",
     "data:cases:worldwide":  "./scripts/casesworldwide-wikipedia.js > data/casesworldwide-wikipedia.csv",
     "data:cases:us":  "./scripts/cases-us-cdc.js > data/cases-us-cdc.csv",
-    "data:cases":  "npm run data:cases:worldwide && npm run data:cases:us && gc -A && gc -m 'data update'"
+    "data":  "npm run data:cases:worldwide && npm run data:cases:us && git add -A && git commit -m 'data update'"
   },
   "repository": {
     "type": "git",
