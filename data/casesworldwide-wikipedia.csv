@@ -1,0 +1,85 @@
+"country_name","region","autochtonous_confirmed","autochtonous_suspected","imported_confirmed","deaths"
+"Aruba","americas","4","",,""
+"Barbados","americas","7","316",,""
+"Bolivia","americas","25","",,""
+"Bonaire","americas","1","",,""
+"Brazil","americas","534","72062",,"4"
+"Colombia","americas","2603","58790",,""
+"Costa Rica","americas","12","",,""
+"Cuba","americas","1","",,""
+"Curaçao","americas","1","",,""
+"Dominica","americas","1","",,""
+"Dominican Republic","americas","55","1090",,"1"
+"Ecuador","americas","63","0",,""
+"El Salvador","americas","46","9772",,""
+"French Guiana","americas","355","3620",,""
+"Guadeloupe","americas","191","1090",,""
+"Guatemala","americas","261","915",,""
+"Guyana","americas","1","",,""
+"Haiti","americas","5","1777",,""
+"Honduras","americas","2","16536",,""
+"Jamaica","americas","4","",,""
+"Martinique","americas","12","16650",,""
+"Mexico","americas","222","",,""
+"Nicaragua","americas","131","",,""
+"Panama","americas","196","",,""
+"Paraguay","americas","7","",,""
+"Puerto Rico","americas","436","",,""
+"Saint Lucia","americas","2","",,""
+"Saint Martin","americas","42","160",,""
+"Saint Vincent and the Grenadines","americas","1","",,""
+"Sint Maarten","americas","2","",,""
+"Suriname","americas","485","3440",,"4"
+"Trinidad and Tobago","americas","13","",,""
+"U.S. Virgin Islands","americas","13","42",,""
+"Venezuela","americas","352","15495",,"1"
+"Cape Verde","africa_asia_oceania","2","7457",,
+"Laos","africa_asia_oceania","","",,
+"Maldives","africa_asia_oceania","1","",,
+"Philippines","africa_asia_oceania","1","",,
+"Thailand","africa_asia_oceania","1","",,
+"Vietnam","africa_asia_oceania","3","",,
+"American Samoa","africa_asia_oceania","14","403",,
+"Fiji","africa_asia_oceania","15","",,
+"Kosrae (FSM)","africa_asia_oceania","1","",,
+"Marshall Islands","africa_asia_oceania","1","",,
+"New Caledonia","africa_asia_oceania","73","",,
+"Papua New Guinea","africa_asia_oceania","","",,
+"Samoa","africa_asia_oceania","10","",,
+"Solomon Islands","africa_asia_oceania","302","",,
+"Tonga","africa_asia_oceania","36","2010",,
+"Vanuatu","africa_asia_oceania","","",,
+"Madagascar","imported",,,"1",
+"South Africa","imported",,,"1",
+"Argentina","imported",,,"9",
+"Canada","imported",,,"44",
+"Chile","imported",,,"10",
+"Peru","imported",,,"4",
+"United States","imported",,,"346",
+"China","imported",,,"15",
+"Israel","imported",,,"4",
+"Japan","imported",,,"2",
+"Russia","imported",,,"1",
+"South Korea","imported",,,"1",
+"Taiwan","imported",,,"1",
+"Austria","imported",,,"1",
+"Czech Republic","imported",,,"4",
+"Denmark","imported",,,"4",
+"Finland","imported",,,"2",
+"France","imported",,,"89",
+"Germany","imported",,,"26",
+"Ireland","imported",,,"3",
+"Italy","imported",,,"9",
+"Madeira","imported",,,"2",
+"Malta","imported",,,"1",
+"Netherlands","imported",,,"30",
+"Norway","imported",,,"12",
+"Portugal","imported",,,"11",
+"Slovakia","imported",,,"1",
+"Slovenia","imported",,,"1",
+"Spain","imported",,,"58",
+"Sweden","imported",,,"2",
+"Switzerland","imported",,,"2",
+"United Kingdom","imported",,,"12",
+"Australia","imported",,,"20",
+"New Zealand","imported",,,"77",

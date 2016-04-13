@@ -5,22 +5,21 @@
   "main": "zzz-dist.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    
     "build:libs": "(cat node_modules/moment/min/moment-with-locales.min.js; echo '\n';) > zzz-libs-dist.js",
-    
-    
     "build:es6": "babel index.js --presets es2015 -o zzz-dist.js",
     "build:css": "./node_modules/.bin/postcss -u autoprefixer index.css -o zzz-dist.css",
     "watch:es6": "npm run build:es6 -- -w",
     "watch:css": "npm run build:css -- -w",
     "watch": "npm run watch:es6 & npm run watch:css",
-    
     "build": "true  && npm run build:libs  && npm run build:es6 && npm run build:css",
     "livereload": "live-reload --port 9091 .",
     "open": "opener http://localhost:9090",
     "serve": "http-server -s -p 9090 .",
     "dev": "npm run build -s && (sleep 1 && npm run open -s) & npm run watch -s & npm run livereload -s & npm run serve",
-    "gist": "echo 'Mapping progression, risk factors, and response to the Zika virus' > '..zika' && gistup && gistup-rename 'zika - Mapping progression, risk factors, and response to the Zika virus'"
+    "gist": "echo 'Mapping progression, risk factors, and response to the Zika virus' > '..zika' && gistup && gistup-rename 'zika - Mapping progression, risk factors, and response to the Zika virus'",
+    "data:cases:worldwide":  "./scripts/casesworldwide-wikipedia.js > data/casesworldwide-wikipedia.csv",
+    "data:cases:us":  "./scripts/cases-us-cdc.js > data/cases-us-cdc.csv",
+    "data:cases":  "npm run data:cases:worldwide && npm run data:cases:us && gc -A && gc -m 'data update'"
   },
   "repository": {
     "type": "git",
@@ -36,19 +35,20 @@
   },
   "homepage": "https://github.com/nerik/generator-cartodb#readme",
   "devDependencies": {
-    
     "autoprefixer": "^6.2.2",
     "babel-cli": "^6.3.17",
     "babel-preset-es2015": "^6.3.13",
-    "postcss-cli": "^2.3.3",
-    
+    "cheerio": "^0.20.0",
+    "eslint": "^2.0.0",
+    "gistup": "^0.1.2",
     "http-server": "^0.8.5",
+    "json2csv": "^3.2.0",
     "live-reload": "^1.1.0",
     "opener": "^1.4.1",
-    "gistup": "^0.1.2",
-    "eslint": "^2.0.0"
+    "postcss-cli": "^2.3.3",
+    "request": "^2.71.0"
   },
   "dependencies": {
-    "moment" : "^2.11.2"
+    "moment": "^2.11.2"
   }
 }
