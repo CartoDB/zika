@@ -1,54 +1,54 @@
 "country_name","region","autochtonous_confirmed","autochtonous_suspected","imported_confirmed","deaths"
-"Aruba","americas","4","",0,""
-"Barbados","americas","7","316",0,""
-"Bolivia","americas","25","",0,""
-"Bonaire","americas","1","",0,""
+"Aruba","americas","4","0",0,"0"
+"Barbados","americas","7","316",0,"0"
+"Bolivia","americas","25","0",0,"0"
+"Bonaire","americas","1","0",0,"0"
 "Brazil","americas","534","72062",0,"4"
-"Colombia","americas","2603","58790",0,""
-"Costa Rica","americas","12","",0,""
-"Cuba","americas","1","",0,""
-"Curaçao","americas","1","",0,""
-"Dominica","americas","1","",0,""
+"Colombia","americas","2603","58790",0,"0"
+"Costa Rica","americas","12","0",0,"0"
+"Cuba","americas","1","0",0,"0"
+"Curaçao","americas","1","0",0,"0"
+"Dominica","americas","1","0",0,"0"
 "Dominican Republic","americas","55","1090",0,"1"
-"Ecuador","americas","63","0",0,""
-"El Salvador","americas","46","9772",0,""
-"French Guiana","americas","355","3620",0,""
-"Guadeloupe","americas","191","1090",0,""
-"Guatemala","americas","261","915",0,""
-"Guyana","americas","1","",0,""
-"Haiti","americas","5","1777",0,""
-"Honduras","americas","2","16536",0,""
-"Jamaica","americas","4","",0,""
-"Martinique","americas","12","16650",0,""
-"Mexico","americas","222","",0,""
-"Nicaragua","americas","131","",0,""
-"Panama","americas","196","",0,""
-"Paraguay","americas","7","",0,""
-"Puerto Rico","americas","436","",0,""
-"Saint Lucia","americas","2","",0,""
-"Saint Martin","americas","42","160",0,""
-"Saint Vincent and the Grenadines","americas","1","",0,""
-"Sint Maarten","americas","2","",0,""
+"Ecuador","americas","63","0",0,"0"
+"El Salvador","americas","46","9772",0,"0"
+"French Guiana","americas","355","3620",0,"0"
+"Guadeloupe","americas","191","1090",0,"0"
+"Guatemala","americas","261","915",0,"0"
+"Guyana","americas","1","0",0,"0"
+"Haiti","americas","5","1777",0,"0"
+"Honduras","americas","2","16536",0,"0"
+"Jamaica","americas","4","0",0,"0"
+"Martinique","americas","12","16650",0,"0"
+"Mexico","americas","222","0",0,"0"
+"Nicaragua","americas","131","0",0,"0"
+"Panama","americas","196","0",0,"0"
+"Paraguay","americas","7","0",0,"0"
+"Puerto Rico","americas","436","0",0,"0"
+"Saint Lucia","americas","2","0",0,"0"
+"Saint Martin","americas","42","160",0,"0"
+"Saint Vincent and the Grenadines","americas","1","0",0,"0"
+"Sint Maarten","americas","2","0",0,"0"
 "Suriname","americas","485","3440",0,"4"
-"Trinidad and Tobago","americas","13","",0,""
-"U.S. Virgin Islands","americas","13","42",0,""
+"Trinidad and Tobago","americas","13","0",0,"0"
+"U.S. Virgin Islands","americas","13","42",0,"0"
 "Venezuela","americas","352","15495",0,"1"
 "Cape Verde","africa_asia_oceania","2","7457",0,0
-"Laos","africa_asia_oceania","","",0,0
-"Maldives","africa_asia_oceania","1","",0,0
-"Philippines","africa_asia_oceania","1","",0,0
-"Thailand","africa_asia_oceania","1","",0,0
-"Vietnam","africa_asia_oceania","3","",0,0
+"Laos","africa_asia_oceania","0","0",0,0
+"Maldives","africa_asia_oceania","1","0",0,0
+"Philippines","africa_asia_oceania","1","0",0,0
+"Thailand","africa_asia_oceania","1","0",0,0
+"Vietnam","africa_asia_oceania","3","0",0,0
 "American Samoa","africa_asia_oceania","14","403",0,0
-"Fiji","africa_asia_oceania","15","",0,0
-"Kosrae","africa_asia_oceania","1","",0,0
-"Marshall Islands","africa_asia_oceania","1","",0,0
-"New Caledonia","africa_asia_oceania","73","",0,0
-"Papua New Guinea","africa_asia_oceania","","",0,0
-"Samoa","africa_asia_oceania","10","",0,0
-"Solomon Islands","africa_asia_oceania","302","",0,0
+"Fiji","africa_asia_oceania","15","0",0,0
+"Kosrae","africa_asia_oceania","1","0",0,0
+"Marshall Islands","africa_asia_oceania","1","0",0,0
+"New Caledonia","africa_asia_oceania","73","0",0,0
+"Papua New Guinea","africa_asia_oceania","0","0",0,0
+"Samoa","africa_asia_oceania","10","0",0,0
+"Solomon Islands","africa_asia_oceania","302","0",0,0
 "Tonga","africa_asia_oceania","36","2010",0,0
-"Vanuatu","africa_asia_oceania","","",0,0
+"Vanuatu","africa_asia_oceania","0","0",0,0
 "Madagascar","imported",0,0,"1",0
 "South Africa","imported",0,0,"1",0
 "Argentina","imported",0,0,"9",0

@@ -42,15 +42,12 @@ var parseCountriesTable = ($table, region, $) => {
       var imported_confirmed = 0;
       var deaths = 0;
 
-      if (region === 'americas') {
-        autochtonous_confirmed = $cells.eq(1).text().cleanReferences().toInt().trim();
-        autochtonous_suspected = $cells.eq(2).text().cleanReferences().toInt().trim();
-        deaths = $cells.eq(3).text().cleanReferences().toInt().trim();
-      } else if (region === 'africa_asia_oceania') {
-        autochtonous_confirmed = $cells.eq(1).text().cleanReferences().toInt().trim();
-        autochtonous_suspected = $cells.eq(2).text().cleanReferences().toInt().trim();
+      if (region === 'americas' || region === 'africa_asia_oceania') {
+        autochtonous_confirmed = $cells.eq(1).text().cleanReferences().toInt().orZero().trim();
+        autochtonous_suspected = $cells.eq(2).text().cleanReferences().toInt().orZero().trim();
+        if (region === 'americas') deaths = $cells.eq(3).text().cleanReferences().toInt().orZero().trim();
       } else {
-        imported_confirmed = $cells.eq(1).text().cleanReferences().toInt().trim();
+        imported_confirmed = $cells.eq(1).text().cleanReferences().toInt().orZero().trim();
       }
 
       table.push({
