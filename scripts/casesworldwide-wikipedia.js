@@ -37,7 +37,10 @@ var parseCountriesTable = ($table, region, $) => {
     if ($(row).find('td').length ) {
       var $cells = $(row).find('td');
       var country_name = $cells.eq(0).text().cleanReferences().trim();
-      var autochtonous_confirmed, autochtonous_suspected, imported_confirmed, deaths;
+      var autochtonous_confirmed = 0;
+      var autochtonous_suspected = 0;
+      var imported_confirmed = 0;
+      var deaths = 0;
 
       if (region === 'americas') {
         autochtonous_confirmed = $cells.eq(1).text().cleanReferences().toInt().trim();
