@@ -4,3 +4,21 @@ html, body, #map {
   padding: 0;
   margin: 0;
 }
+.CDB-Tooltip h1 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.CDB-Tooltip h4 {
+  font-weight: bold;
+  margin-top: 5px;
+}
+.CDB-Tooltip-wrapper {
+  min-width: 160px;
+}
+
+div.cartodb-legend-stack {
+  top: 25px;
+  bottom: auto;
+}

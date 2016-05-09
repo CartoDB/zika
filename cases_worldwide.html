@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mapping progression, risk factors, and response to the Zika virus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/di.js/v0/themes/css/deep-insights.css" />
+  <link rel="stylesheet" href="zzz-dist.css" media="screen">
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <script src="//localhost:9091"></script>
+</head>
+
+
+<body>
+  <div id="dashboard"></div>
+
+  <script type="text/template" id="tpl-sql-base">
+    select
+    w.cartodb_id,
+    w.the_geom,
+    w.the_geom_webmercator,
+    w.name,
+    z.autochtonous_confirmed value1,
+    z.autochtonous_suspected value2,
+    z.imported_confirmed value4,
+    z.deaths value3,
+    (autochtonous_confirmed is not null or    imported_confirmed is not null or w.name = 'United States of America') has_cases
+    from
+    nerikcarto.world_borders w
+    left outer join
+    nerikcarto.zika_cases_worldwide_wikipedia z
+    on
+    z.country_name = w.name
+  </script>
+
+  <script type="text/template" id="tpl-tooltip-base">
+    <div class="CDB-Tooltip CDB-Tooltip--isLight">
+      <h1>{{name}}</h1>
+      <h4>autochtonous confirmed</h4>
+      <p>{{value1}}</p>
+      <h4>autochtonous suspected</h4>
+      <p>{{value2}}</p>
+      <h4>deaths</h4>
+      <p>{{value3}}</p>
+      <h4>imported confirmed</h4>
+      <p>{{value4}}</p>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl-sql-cases">
+    WITH
+    centroids AS (
+      SELECT
+      	country_name,
+      	deaths,
+      	autochtonous_confirmed,
+      	imported_confirmed,
+          coalesce(deaths,0)+
+      	  coalesce(autochtonous_confirmed,0)+
+    	  coalesce(imported_confirmed,0)
+        as total,
+    	ST_PointOnSurface (the_geom_webmercator) the_geom_webmercator
+      FROM
+     	nerikcarto.zika_cases_worldwide_wikipedia
+    ),
+
+    cases AS (
+      SELECT
+    	generate_series(0, total-1) case_index,
+      	country_name,
+        CASE
+      		WHEN country_name IN ('Brazil','Colombia')
+      		THEN 45
+      		ELSE 15
+      	END stack_width,
+      	total,
+      	deaths,
+      	autochtonous_confirmed,
+      	imported_confirmed,
+    	the_geom_webmercator
+      FROM centroids
+    )
+
+    --,final AS (
+
+    SELECT
+      country_name,
+      total,
+      case_index,
+      CASE
+    	WHEN case_index
+    		BETWEEN	0
+    		AND deaths-1
+    		THEN '_deaths'
+    	WHEN case_index
+    		BETWEEN deaths
+    		AND deaths+autochtonous_confirmed-1
+    		THEN 'autochtonous_confirmed'
+    	WHEN case_index
+    		BETWEEN deaths+autochtonous_confirmed
+    		AND deaths+autochtonous_confirmed+imported_confirmed-1
+    		THEN 'imported_confirmed'
+        ELSE 'other'
+      END as type,
+      ST_Translate(
+        cases.the_geom_webmercator,
+        ((cases.case_index%stack_width)-least(stack_width,total)/2)*18000,
+        (floor(cases.case_index/stack_width))*18000
+      ) the_geom_webmercator
+    FROM
+    cases
+    ORDER BY
+    type
+
+    --)
+
+
+    --select distinct on(country_name) * from cases
+    --select count(*) from cases
+  </script>
+
+
+  <script type="text/template" id="tpl-css-cases">
+    #zika_cases_worldwide_wikipedia {
+      marker-fill-opacity: 0.9;
+      marker-line-width: 0;
+      marker-line-color: #FFFFFF;
+      marker-placement: point;
+      marker-type: ellipse;
+      marker-width: 3;
+      marker-allow-overlap: true;
+      marker-fill: {{colors.quali.value1}};
+    }
+
+    #zika_cases_worldwide_wikipedia[type='_deaths'] {
+      marker-fill: {{colors.quali.important}};
+      marker-width: 10;
+      marker-line-width: 1;
+    }
+
+    #zika_cases_worldwide_wikipedia[type='imported_confirmed'] {
+       marker-fill: {{colors.quali.value2}};
+    }
+  </script>
+
+  <script type="text/template" id="tpl-legend-cases">
+    <div class='cartodb-legend custom'>
+      <ul>
+      	<li>
+      		<div class="bullet" style="background:{{colors.quali.value1}}"></div>
+      		one locally transmitted zika case
+      	</li>
+      	<li>
+      		<div class="bullet" style="background:{{colors.quali.value2}}"></div>
+      		one imported zika case
+      	</li>
+      	<li>
+      		<div class="bullet" style="background:{{colors.quali.important}}"></div>
+      		one death directly due to zika
+      	</li>
+      </ul>
+    </div>
+  </script>
+
+  <script type="text/javascript" src="zzz-libs-dist.js"></script>
+
+  <script src=" http://libs.cartocdn.com/di.js/v0/deep-insights.uncompressed.js"></script>
+  <script type="text/javascript" src="cases_worldwide.js"></script>
+  <script type="text/javascript" src="zzz-dist.js"></script>
+</body>
+</html>

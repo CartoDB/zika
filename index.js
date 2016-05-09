@@ -1,102 +1,195 @@
+/* eslint quotes: 0 */
+
 ;(function() {
 
-  var vizjson = {
-    'id':'2b13c956-e7c1-11e2-806b-5404a6a683d5',
-    'version':'0.1.0',
-    'title':'european_countries_e 0',
-    'scrollwheel':false,
-    'legends':false,
-    'map_provider':'leaflet',
-    'bounds':[
-      [
-        -18.979025953255253,
-        -155.7421875
-      ],
-      [
-        80.58972691308571,
-        261.2109375
-      ]
-    ],
-    'center':'[51.505, -0.09]',
-    'zoom':13,
-    'updated_at':'2015-03-13T11:24:37+00:00',
-    'datasource': {
-      'user_name': 'nerikcarto',
-      'maps_api_template': 'http://{user}.cartodb.com:80',
-      'force_cors': true, // This is sometimes set in the editor,
-      'stat_tag': '84ec6844-4b4b-11e5-9c1d-080027880ca6'
+  let tplCssConfig = {
+    colors: {
+      background: '#FFFFFF',
+      quali: {
+        important: '#cc2d7f',
+        value1: '#e58606',
+        value2: '#52bca3'
+      },
+      quanti: {
+        scale1: ['#5c53a5','#ab5b9e','#dc6f8e','#f59280','#fabc82','#f3e79b'] //sunset2
+      }
+    }
+  }
+
+  var vizJSON = {
+    "user": {
+      "fullname": "",
+      "avatar_url": ""
     },
-    'layers':[
+    "widgets": window.pageConfig.widgets,
+    "datasource": {
+      "user_name": "nerikcarto",
+      "maps_api_template": "https://{user}.cartodb.com:443",
+      "force_cors": true, // This is sometimes set in the editor,
+      "stat_tag": "84ec6844-4b4b-11e5-9c1d-080027880ca6"
+    },
+    //"id": "84ec6844-4b4b-11e5-9c1d-080027880ca6",
+    "version": "0.1.0",
+    "likes": 0,
+    "scrollwheel": false,
+    "legends": true,
+    "map_provider": "leaflet",
+    "center": window.pageConfig.center,
+    "zoom": window.pageConfig.zoom,
+    "updated_at": "2015-10-26T11:50:30+00:00",
+    "layers": [
       {
-        'options':{
-          'id':'0a3d9104-99c6-482b-9f8c-7c6134bddcdc',
-          'order':0,
-          'visible':true,
-          'type':'Tiled',
-          'name':'Positron',
-          'className':'default positron_rainbow',
-          'base_type':'positron_rainbow',
-          'urlTemplate':'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-          'read_only':true,
-          'minZoom':'0',
-          'maxZoom':'18',
-          'attribution':'\u00a9 <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors \u00a9 <a href= \'http://cartodb.com/attributions#basemaps\'>CartoDB</a>',
-          'subdomains':'abcd',
-          'category':'CartoDB'
+        "options": {
+          "type": "Plain",
+          "base_type": "plain",
+          "className": "plain",
+          "color": "#ffffff",
+          "image": "",
+          "maxZoom": 32,
+          "id": "053e8f80-ecad-4d74-a9e0-f1eaf2f807f8",
+          "order": 0
         },
-        'infowindow':null,
-        'tooltip':null,
-        'id':'0a3d9104-99c6-482b-9f8c-7c6134bddcdc',
-        'order':0,
-        'type':'tiled'
-      }
-    ],
-    'overlays':[
-      {
-        'type':'loader',
-        'options':{
-          'display':true,
-          'x':20,
-          'y':150
-        }
+        "infowindow": null,
+        "tooltip": null,
+        "id": "053e8f80-ecad-4d74-a9e0-f1eaf2f807f8",
+        "order": 0,
+        "type": "background"
       },
       {
-        'type':'search',
-        'options':{
-          'display':true
-        }
-      },
-      {
-        'type':'zoom',
-        'options':{
-          'x':20,
-          'y':20,
-          'display':true
+        "type": "layergroup",
+        "options": {
+          "user_name": "nerikcarto",
+          "maps_api_template": "https://{user}.cartodb.com:443",
+          "sql_api_template": "https://{user}.cartodb.com:443",
+          "tiler_protocol": "http",
+          "tiler_domain": "cartodb.com",
+          "tiler_port": "80",
+          "sql_api_protocol": "http",
+          "sql_api_domain": "cartodb.com",
+          "sql_api_endpoint": "/api/v2/sql",
+          "sql_api_port": 80,
+          "filter": "mapnik",
+          "layer_definition": {
+            "stat_tag": "1ab8106e-0233-11e6-8d70-0e787de82d45",
+            "version": "1.0.1",
+            "layers": [
+              {
+                "id": "3c6d147d-6127-4347-b396-9884022d0482",
+                "type": "CartoDB",
+                "tooltip": {
+                  "fields": window.pageConfig.tooltip.fields,
+                  "template_name": "tooltip_light",
+                  "template": cartodb.$('#tpl-tooltip-base').html(),
+                  "alternative_names": {},
+                  "maxHeight": 180
+                },
+                "order": 1,
+                "visible": true,
+                "options": {
+                  "layer_name": "world_borders",
+                  "cartocss": "#world_borders_hd{\n  polygon-fill: #ffeab0;\n  polygon-opacity: .5;\n  line-color: #FFF;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: 1;\n\n}\n",
+                  "cartocss_version": "2.1.1",
+                  "interactivity": window.pageConfig.tooltip.interactivity,
+                  "sql": cartodb.$('#tpl-sql-base').html(),
+                  "table_name": "\"\"."
+                }
+              },
+            ]
+          },
+          "attribution": ""
         }
       }
     ],
-    'prev':null,
-    'next':null,
-    'transition_options':{}
+    "overlays": [
+      {
+        "type": "search",
+        "order": 3,
+        "options": {
+          "display": true,
+          "x": 60,
+          "y": 20
+        },
+        "template": ""
+      },
+      {
+        "type": "zoom",
+        "order": 6,
+        "options": {
+          "display": true,
+          "x": 20,
+          "y": 20
+        },
+      "template": "<div class=\"CDB-Overlay\"><button class=\"CDB-Zoom-action CDB-Zoom-action--out js-zoomOut\"></button><button class=\"CDB-Zoom-action CDB-Zoom-action--in js-zoomIn\"></button></div><div class=\"CDB-Zoom-info js-zoomInfo\">1</div>"
+    },
+      {
+        "type": "loader",
+        "order": 8,
+        "options": {
+          "display": true,
+          "x": 20,
+          "y": 150
+        },
+        "template": ""
+      }
+    ],
+    "prev": null,
+    "next": null,
+    "transition_options": {
+      "time": 0
+    }
   };
 
   function main() {
-    cartodb.createVis('map', vizjson, {
 
-    })
-    .done(function(vis, layers) {
-      // layer 0 is the base layer, layer 1 is cartodb layer
-      // setInteraction is disabled by default
-      // layers[1].setInteraction(true);
-      // layers[1].on('featureOver', function(e, latlng, pos, data) {
+    _.templateSettings = {
+      interpolate: /\{\{(.+?)\}\}/g
+    };
 
-      // });
-      // you can get the native map to work with it
-      var map = vis.getNativeMap();
-    })
-    .error(function(err) {
-      console.log(err);
+    vizJSON = prepareLayers(vizJSON);
+
+    cartodb.deepInsights.createDashboard('#dashboard', vizJSON, {
+     no_cdn: false,
+     renderMenu: false
+   }, function(err, dashboard) {
+      console.log(err)
     });
+
+  }
+
+  function prepareLayers(_vizJSON) {
+    var layerIds = window.pageConfig.layerIds;
+    console.log(layerIds);
+
+    //sublayers
+    var vizJSONLayers = _vizJSON.layers[1].options.layer_definition.layers;
+    var i = 1;
+    layerIds.forEach(layerId => {
+      var layer = {
+        id: layerId,
+        "type": "CartoDB",
+        order: i++,
+        visible: true,
+        options: {
+          cartocss: cartodb._.template( cartodb.$('#tpl-css-'+layerId).html() )(tplCssConfig),
+          "cartocss_version": "2.1.1",
+          sql: cartodb._.template( cartodb.$('#tpl-sql-'+layerId).html() )({})
+        }
+      };
+
+      if (cartodb.$('#tpl-legend-'+layerId).length) {
+        layer.legend = {
+          "type": "custom",
+          "show_title": false,
+          "visible": true,
+          template: cartodb._.template( cartodb.$('#tpl-legend-'+layerId).html() )(tplCssConfig)
+        }
+      }
+
+      vizJSONLayers.push(layer);
+
+    });
+    console.log(_vizJSON);
+    return _vizJSON;
   }
   window.onload = main;
 })();
