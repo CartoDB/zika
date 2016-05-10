@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="favicon.ico" />
 
   <script src="//localhost:9091"></script>
+
 </head>
 
 
@@ -20,8 +21,9 @@
     SELECT
     cartodb_id,
     name,
-    st_translate(the_geom_webmercator, 0, -145000) the_geom_webmercator,
-    true has_cases
+    true has_cases,
+    the_geom,
+    the_geom_webmercator
     FROM world_borders
   </script>
 
@@ -32,7 +34,7 @@
   </script>
 
   <script type="text/template" id="tpl-sql-env">
-    SELECT * FROM zika_env_supz order by value asc
+    SELECT * FROM zika_env2_clean order by value asc
   </script>
 
 
@@ -73,22 +75,27 @@
     }
   </script>
 
-  <script type="text/template" id="tpl-legend-cases">
-    <div class='cartodb-legend custom'>
-      <ul>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.value1}}"></div>
-      		one locally transmitted zika case
-      	</li>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.value2}}"></div>
-      		one imported zika case
-      	</li>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.important}}"></div>
-      		one death directly due to zika
-      	</li>
-      </ul>
+  <script type="text/template" id="tpl-legend-env">
+    <div class='cartodb-legend choropleth'>
+    <div class="legend-title">Zika Environmental sustainability index</div>
+    <ul>
+    	<li class="min" style="margin-left: 16.5%;">
+    		0
+    	</li>
+    	<li class="max">
+    		1
+    	</li>
+    	<li class="graph count_315">
+    	<div class="colors">
+    	<div class="quartile" style="background-color:{{colors.land}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[4]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[3]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[2]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[1]}}"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale1[0]}}"></div>
+    	</div>
+    	</li>
+    </ul>
     </div>
   </script>
 

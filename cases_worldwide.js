@@ -1,7 +1,7 @@
 /* eslint quotes: 0 */
 
 window.pageConfig = {
-  layerIds: ["cases"],
+  layerIds: ["cases","suspected","labels"],
   zoom: 5,
   center: [15, -70],
   tooltip: {

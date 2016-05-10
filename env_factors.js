@@ -16,6 +16,17 @@ window.pageConfig = {
   },
   widgets: [
     {
+      "id": "country",
+      "type": "category",
+      "title": "Country",
+      "order": 0,
+      "layer_id": "env",
+      "options": {
+        "column": "country_name",
+        "aggregation": "count"
+      }
+    },
+    {
       "id": "avg",
       "type": "formula",
       "title": "Average index",

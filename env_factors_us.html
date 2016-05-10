@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Zika environmental sustainability index (from 0 to 1)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/di.js/v0/themes/css/deep-insights.css" />
+  <link rel="stylesheet" href="zzz-dist.css" media="screen">
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <script src="//localhost:9091"></script>
+
+</head>
+
+
+<body>
+  <div id="dashboard"></div>
+
+
+  <script type="text/template" id="tpl-sql-base">
+    select
+    w.cartodb_id,
+    w.the_geom,
+    w.the_geom_webmercator,
+    w.name,
+    z.autochtonous_confirmed,
+    z.imported_confirmed,
+    (autochtonous_confirmed is not null or    imported_confirmed is not null) has_cases
+    from
+    nerikcarto.us_states w
+    left outer join
+    nerikcarto.zika_cases_us_cdc z
+    on
+    z.state_name = w.name
+  </script>
+
+  <script type="text/template" id="tpl-tooltip-base">
+    <div class="CDB-Tooltip CDB-Tooltip--isLight">
+      <h1>{{name}}</h1>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl-sql-env">
+    SELECT
+    state_name,
+    value,
+    st_transform(the_geom_us, 3857) the_geom_webmercator
+    FROM nerikcarto.zika_env2_clean
+    where state_name is not null
+     order by value asc
+  </script>
+
+
+  <script type="text/template" id="tpl-css-env">
+    #zika_env_supz{
+      marker-fill-opacity: 1;
+      marker-line-width: 0;
+      marker-line-opacity: 1;
+      marker-fill: #FFFFB2;
+      marker-allow-overlap: true;
+      [zoom>=3] {
+        marker-width: 2;
+      }
+      [zoom>=5] {
+        marker-width: 4;
+      }
+      [zoom>=6] {
+        marker-width: 7;
+      }
+      [zoom>=7] {
+        marker-width: 11;
+      }
+    }
+    #zika_env_supz [ value <= 0.991382] {
+       marker-fill: {{colors.quanti.scale1[0]}};
+    }
+    #zika_env_supz [ value <= 0.792891] {
+       marker-fill: {{colors.quanti.scale1[1]}};
+    }
+    #zika_env_supz [ value <= 0.626995] {
+       marker-fill: {{colors.quanti.scale1[2]}};
+    }
+    #zika_env_supz [ value <= 0.403778] {
+       marker-fill: {{colors.quanti.scale1[3]}};
+    }
+    #zika_env_supz [ value <= 0.104523] {
+       marker-fill: {{colors.quanti.scale1[4]}};
+    }
+  </script>
+
+  <script type="text/template" id="tpl-legend-env">
+    <div class='cartodb-legend choropleth'>
+    <div class="legend-title">Zika Environmental sustainability index</div>
+    <ul>
+      <li class="min" style="margin-left: 16.5%;">
+        0
+      </li>
+      <li class="max">
+        1
+      </li>
+      <li class="graph count_315">
+      <div class="colors">
+      <div class="quartile" style="background-color:{{colors.land}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[4]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[3]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[2]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[1]}}"></div>
+      <div class="quartile" style="background-color:{{colors.quanti.scale1[0]}}"></div>
+      </div>
+      </li>
+    </ul>
+    </div>
+  </script>
+
+
+
+  <script type="text/javascript" src="zzz-libs-dist.js"></script>
+
+  <script src=" http://libs.cartocdn.com/di.js/v0/deep-insights.uncompressed.js"></script>
+  <script type="text/javascript" src="env_factors_us.js"></script>
+  <script type="text/javascript" src="zzz-dist.js"></script>
+</body>
+</html>

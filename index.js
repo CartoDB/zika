@@ -5,6 +5,7 @@
   let tplCssConfig = {
     colors: {
       background: '#FFFFFF',
+      land: '#ffeab0',
       quali: {
         important: '#cc2d7f',
         value1: '#e58606',
@@ -43,7 +44,7 @@
           "type": "Plain",
           "base_type": "plain",
           "className": "plain",
-          "color": "#ffffff",
+          "color": tplCssConfig.colors.background,
           "image": "",
           "maxZoom": 32,
           "id": "053e8f80-ecad-4d74-a9e0-f1eaf2f807f8",
@@ -87,7 +88,7 @@
                 "visible": true,
                 "options": {
                   "layer_name": "world_borders",
-                  "cartocss": "#world_borders_hd{\n  polygon-fill: #ffeab0;\n  polygon-opacity: .5;\n  line-color: #FFF;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: 1;\n\n}\n",
+                  "cartocss": "#world_borders_hd{\n  polygon-fill: "+tplCssConfig.colors.land+";\n  polygon-opacity: .5;\n  line-color: #FFF;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: 1;\n\n}\n",
                   "cartocss_version": "2.1.1",
                   "interactivity": window.pageConfig.tooltip.interactivity,
                   "sql": cartodb.$('#tpl-sql-base').html(),
@@ -152,6 +153,9 @@
      renderMenu: false
    }, function(err, dashboard) {
       console.log(err)
+      // inject dist selector
+      // var distSelector = cdb.$('.js-country-selector');
+      // distSelector.insertBefore(cdb.$('.CDB-Widget').eq(0));
     });
 
   }

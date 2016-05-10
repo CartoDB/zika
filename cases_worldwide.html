@@ -49,6 +49,33 @@
     </div>
   </script>
 
+  <script type="text/template" id="tpl-sql-suspected">
+    select
+    ST_Translate(
+      ST_Expand(
+        ST_PointOnSurface (the_geom_webmercator),
+        sqrt(autochtonous_suspected)*4000
+      ),
+      0,
+      -20000+sqrt(autochtonous_suspected)*4000
+    )
+    the_geom_webmercator
+    from nerikcarto.zika_cases_worldwide_wikipedia
+    where autochtonous_suspected > 0
+
+  </script>
+
+  <script type="text/template" id="tpl-css-suspected">
+    #zika_cases_worldwide_wikipedia{
+      polygon-fill: #FF6600;
+      polygon-opacity: 0;
+      line-color: #FFCC00;
+      line-width: 1;
+      line-opacity: .8;
+    }
+
+  </script>
+
   <script type="text/template" id="tpl-sql-cases">
     WITH
     centroids AS (
@@ -144,6 +171,62 @@
        marker-fill: {{colors.quali.value2}};
     }
   </script>
+
+
+  <script type="text/template" id="tpl-sql-labels">
+    select
+    	(autochtonous_confirmed is not null or    imported_confirmed is not null) has_cases,
+    	ST_PointOnSurface (the_geom_webmercator) the_geom_webmercator,
+    	country_name
+
+    from
+    nerikcarto.zika_cases_worldwide_wikipedia
+
+  </script>
+
+  <script type="text/template" id="tpl-css-labels">
+
+    #world_borders[has_cases=true]::labels {
+      text-name: [country_name];
+      text-face-name: 'DejaVu Sans Book';
+      text-size: 12;
+      text-label-position-tolerance: 10;
+      text-fill: #000000;
+      text-halo-fill: #FFF;
+      text-halo-radius: 1;
+      text-opacity: .6;
+      text-dy: 6;
+      text-allow-overlap: true;
+      text-placement: point;
+      text-placement-type: simple;
+      text-align: left;
+
+
+      [country_name='Guadeloupe']{
+      	text-dx: 30;
+      	text-dy: 0;
+      }
+      [country_name='Dominica']{
+      	text-dx: 5;
+      	text-dy: 0;
+      }
+      [country_name='Martinique']{
+      	text-dx: 110;
+      	text-dy: 0;
+      }
+      [country_name='Barbados']{
+      	text-dx: 18;
+      	text-dy: 0;
+      }
+      [country_name='Saint Lucia']{
+      	text-dx: 7;
+      	text-dy: 0;
+      }
+    }
+
+  </script>
+
+
 
   <script type="text/template" id="tpl-legend-cases">
     <div class='cartodb-legend custom'>
