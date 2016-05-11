@@ -152,6 +152,8 @@
      no_cdn: false,
      renderMenu: false
    }, function(err, dashboard) {
+      window.widgets = vis._dataviewsCollection.models;
+
       console.log(err)
       // inject dist selector
       // var distSelector = cdb.$('.js-country-selector');

@@ -1,4 +1,4 @@
-Period,Org,Org Country,Via,Dst,Dst Country,Mkt Car,Seats,Miles,Blktm,Departures,Seats,Remove,ASMs
+Period,Org,Org Country,Via,Dst,Dst Country,Mkt Car,Stops,Seats,Miles,Blktm,Departures,Seats_total,Remove,ASMs
 2015,AYM,AE,"",DCG,AE,J6,0,8,69,75,365,2920,,201480
 2015,ANU,AG,"",BBQ,AG,5M,0,9,34,20,532,4788,,162792
 2015,BBQ,AG,"",ANU,AG,5M,0,9,34,20,532,4788,,162792
