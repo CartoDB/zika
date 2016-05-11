@@ -49,50 +49,42 @@
       line-opacity: 1;
     }
     #us_census [ women_childbearing_ratio <= 1] {
-       polygon-fill: #B10026;
+       polygon-fill: {{colors.quanti.scale2[2]}};
     }
-    #us_census [ women_childbearing_ratio <= 0.17623102554609404] {
-       polygon-fill: #E31A1C;
+    #us_census [ women_childbearing_ratio <= 0.16433962264150945] {
+       polygon-fill: {{colors.quanti.scale2[3]}};
     }
-    #us_census [ women_childbearing_ratio <= 0.15154038301415487] {
-       polygon-fill: #FC4E2A;
+    #us_census [ women_childbearing_ratio <= 0.13788562829194884] {
+       polygon-fill: {{colors.quanti.scale2[4]}};
     }
-    #us_census [ women_childbearing_ratio <= 0.13485851896447923] {
-       polygon-fill: #FD8D3C;
+    #us_census [ women_childbearing_ratio <= 0.117774046533941] {
+       polygon-fill: {{colors.quanti.scale2[5]}};
     }
-    #us_census [ women_childbearing_ratio <= 0.12051938551572787] {
-       polygon-fill: #FEB24C;
-    }
-    #us_census [ women_childbearing_ratio <= 0.10666666666666667] {
-       polygon-fill: #FED976;
-    }
-    #us_census [ women_childbearing_ratio <= 0.0901533610434284] {
-       polygon-fill: #FFFFB2;
+    #us_census [ women_childbearing_ratio <= 0.09751903709162368] {
+       polygon-fill: {{colors.quanti.scale2[6]}};
     }
   </script>
 
   <script type="text/template" id="tpl-legend-us_census">
     <div class='cartodb-legend choropleth'>
-      <div class="legend-title">women of childbearing age</div>
-      <ul>
-      	<li class="min">
-      		less
-      	</li>
-      	<li class="max">
-      		more
-      	</li>
-      	<li class="graph count_441">
-      	<div class="colors">
-      	<div class="quartile" style="background-color:#FFFFB2"></div>
-      	<div class="quartile" style="background-color:#FED976"></div>
-      	<div class="quartile" style="background-color:#FEB24C"></div>
-      	<div class="quartile" style="background-color:#FD8D3C"></div>
-      	<div class="quartile" style="background-color:#FC4E2A"></div>
-      	<div class="quartile" style="background-color:#E31A1C"></div>
-      	<div class="quartile" style="background-color:#B10026"></div>
-      	</div>
-      	</li>
-      </ul>
+    <div class="legend-title">women of childbearing age</div>
+    <ul>
+    	<li class="min">
+    		less
+    	</li>
+    	<li class="max">
+    		more
+    	</li>
+    	<li class="graph count_315">
+    	<div class="colors">
+    	<div class="quartile" style="background-color:#FFFFB2"></div>
+    	<div class="quartile" style="background-color:#FECC5C"></div>
+    	<div class="quartile" style="background-color:#FD8D3C"></div>
+    	<div class="quartile" style="background-color:#F03B20"></div>
+    	<div class="quartile" style="background-color:#BD0026"></div>
+    	</div>
+    	</li>
+    </ul>
     </div>
   </script>
 
@@ -114,13 +106,13 @@
   <script type="text/template" id="tpl-css-env">
     #zika_env2_clean{
       marker-fill-opacity: 0;
-      marker-line-color: #0000ff;
+      marker-line-color: {{colors.quali.scale1[0]}};
       marker-line-width: 2;
       marker-line-opacity: 1;
       marker-placement: point;
       marker-multi-policy: largest;
       marker-type: ellipse;
-      marker-fill: #0000ff;
+      marker-fill: {{colors.quanti.scale1[0]}};
       marker-allow-overlap: true;
       marker-clip: false;
 

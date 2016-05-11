@@ -12,7 +12,8 @@
         value2: '#52bca3'
       },
       quanti: {
-        scale1: ['#5c53a5','#ab5b9e','#dc6f8e','#f59280','#fabc82','#f3e79b'] //sunset2
+        scale1: ['#5c53a5','#ab5b9e','#dc6f8e','#f59280','#fabc82','#f3e79b'], //sunset2
+        scale2: ['#008080','#3b947f','#5da87e','#7dbb7d','#9bcf7d','#bce27f','#dfe895'] //Green3
       }
     }
   }
