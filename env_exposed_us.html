@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Zika environmental sustainability index (from 0 to 1)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/di.js/v0/themes/css/deep-insights.css" />
+  <link rel="stylesheet" href="zzz-dist.css" media="screen">
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <script src="//localhost:9091"></script>
+
+</head>
+
+
+<body>
+  <div id="dashboard"></div>
+
+
+  <script type="text/template" id="tpl-sql-base">
+    select
+    w.cartodb_id,
+    w.the_geom,
+    w.the_geom_webmercator,
+    w.name,
+    true has_cases
+    from
+    nerikcarto.us_states w
+  </script>
+
+  <script type="text/template" id="tpl-tooltip-base">
+    <div class="CDB-Tooltip CDB-Tooltip--isLight">
+      <h1>{{name}}</h1>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl-sql-us_census">
+    SELECT * FROM us_census
+  </script>
+
+
+  <script type="text/template" id="tpl-css-us_census">
+    #us_census{
+      polygon-fill: #FFFFB2;
+      polygon-opacity: 0.8;
+      line-color: #FFF;
+      line-width: 0;
+      line-opacity: 1;
+    }
+    #us_census [ women_childbearing_ratio <= 1] {
+       polygon-fill: #B10026;
+    }
+    #us_census [ women_childbearing_ratio <= 0.17623102554609404] {
+       polygon-fill: #E31A1C;
+    }
+    #us_census [ women_childbearing_ratio <= 0.15154038301415487] {
+       polygon-fill: #FC4E2A;
+    }
+    #us_census [ women_childbearing_ratio <= 0.13485851896447923] {
+       polygon-fill: #FD8D3C;
+    }
+    #us_census [ women_childbearing_ratio <= 0.12051938551572787] {
+       polygon-fill: #FEB24C;
+    }
+    #us_census [ women_childbearing_ratio <= 0.10666666666666667] {
+       polygon-fill: #FED976;
+    }
+    #us_census [ women_childbearing_ratio <= 0.0901533610434284] {
+       polygon-fill: #FFFFB2;
+    }
+  </script>
+
+  <script type="text/template" id="tpl-legend-us_census">
+    <div class='cartodb-legend choropleth'>
+      <div class="legend-title">women of childbearing age</div>
+      <ul>
+      	<li class="min">
+      		less
+      	</li>
+      	<li class="max">
+      		more
+      	</li>
+      	<li class="graph count_441">
+      	<div class="colors">
+      	<div class="quartile" style="background-color:#FFFFB2"></div>
+      	<div class="quartile" style="background-color:#FED976"></div>
+      	<div class="quartile" style="background-color:#FEB24C"></div>
+      	<div class="quartile" style="background-color:#FD8D3C"></div>
+      	<div class="quartile" style="background-color:#FC4E2A"></div>
+      	<div class="quartile" style="background-color:#E31A1C"></div>
+      	<div class="quartile" style="background-color:#B10026"></div>
+      	</div>
+      	</li>
+      </ul>
+    </div>
+  </script>
+
+
+
+
+
+  <script type="text/template" id="tpl-sql-env">
+    SELECT
+    state_name,
+    value,
+    st_transform(the_geom_us, 3857) the_geom_webmercator
+    FROM nerikcarto.zika_env2_clean
+    where state_name is not null
+     order by value asc
+  </script>
+
+
+  <script type="text/template" id="tpl-css-env">
+    #zika_env2_clean{
+      marker-fill-opacity: 0;
+      marker-line-color: #0000ff;
+      marker-line-width: 2;
+      marker-line-opacity: 1;
+      marker-placement: point;
+      marker-multi-policy: largest;
+      marker-type: ellipse;
+      marker-fill: #0000ff;
+      marker-allow-overlap: true;
+      marker-clip: false;
+
+
+      [zoom>=8] {
+        [value<=1] { marker-width: 16;  }
+        [value<=0.9] { marker-width: 11; marker-line-width: 1;  }
+        [value<=0.8] { marker-width: 7;  }
+        [value<=0.5] { marker-width: 4;  }
+      }
+      [zoom=7] {
+        [value<=1] { marker-width: 8;  }
+        [value<=0.9] { marker-width: 6; marker-line-width: 1;  }
+        [value<=0.8] { marker-width: 4;  }
+        [value<=0.5] { marker-width: 1;  }
+      }
+      [zoom<=6] {
+        marker-line-width: 0;
+        marker-fill-opacity: 1;
+        [value<=1] { marker-width: 7;  }
+        [value<=0.9] { marker-width: 5;   }
+        [value<=0.8] { marker-width: 3;  }
+        [value<=0.5] { marker-width: 1;  }
+      }
+    }
+
+    #zika_env2_clean [ value <= 0.9] {
+       marker-width: 11;
+       marker-line-width: 1;
+    }
+    #zika_env2_clean [ value <= 0.8] {
+       marker-width: 7;
+    }
+    #zika_env2_clean [ value <= 0.5] {
+       marker-width: 4;
+    }
+  </script>
+
+  <script type="text/template" id="tpl-legend-env">
+    <div class='cartodb-legend bubble'>
+    <div class="legend-title">zika environmental sustainability index</div>
+    <ul>
+    	<li>
+    	0.185698
+    	</li>
+    	<li class="graph" style="background: rgb(255, 92, 0);">
+    		<div class="bubbles"></div>
+    	</li>
+    	<li>
+    	0.991191
+    	</li>
+    </ul>
+    </div>
+  </script>
+
+
+
+
+
+  <script type="text/template" id="tpl-sql-cities_labels">
+    SELECT * FROM populated_places_us where scalerank < 7
+  </script>
+
+
+  <script type="text/template" id="tpl-css-cities_labels">
+    #populated_places_us {
+      text-name: [name];
+      text-face-name: 'Lato Regular';
+      text-label-position-tolerance: 0;
+      text-fill: #000;
+      text-halo-fill: #FFF;
+      text-halo-radius: 2;
+      text-dy: 0;
+      text-allow-overlap: true;
+      text-placement: point;
+      text-placement-type: dummy;
+
+      [zoom>=8] {
+        [scalerank<7] { text-size: 13;  }
+        [scalerank<5] { text-size: 16.5;  }
+        [scalerank<3] { text-size: 20;  }
+      }
+      [zoom=7] {
+        [scalerank<7] { text-size: 0;  }
+        [scalerank<5] { text-size: 13;  }
+        [scalerank<3] { text-size: 16.5;  }
+      }
+      [zoom<=6] {
+        [scalerank<7] { text-size: 0;  }
+        [scalerank<5] { text-size: 0;  }
+        [scalerank<3] { text-size: 13;  }
+      }
+    }
+
+
+  </script>
+
+
+
+
+  <script type="text/javascript" src="zzz-libs-dist.js"></script>
+
+  <script src=" http://libs.cartocdn.com/di.js/v0/deep-insights.uncompressed.js"></script>
+  <script type="text/javascript" src="env_exposed_us.js"></script>
+  <script type="text/javascript" src="zzz-dist.js"></script>
+</body>
+</html>
