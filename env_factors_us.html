@@ -114,6 +114,24 @@
   </script>
 
 
+  <script type="text/template" id="tpl-sql-separators">
+    -- puerto rico
+    SELECT ST_Transform(ST_GeomFromText('LINESTRING(13 1.5,16 3)', 4236), 3857) as the_geom_webmercator
+    union all
+    -- hawaii
+    SELECT ST_Transform(ST_GeomFromText('LINESTRING(-12 7.8,-5 1.6)', 4236), 3857) as the_geom_webmercator
+    union all
+    -- alaska
+    SELECT ST_Transform(ST_GeomFromText('LINESTRING(-21 10,-9 -1)', 4236), 3857) as the_geom_webmercator
+  </script>
+
+
+  <script type="text/template" id="tpl-css-separators">
+    #here_be_dragons{
+      line-color: {{colors.separators}};
+      line-width: 1;
+    }
+  </script>
 
   <script type="text/javascript" src="zzz-libs-dist.js"></script>
 

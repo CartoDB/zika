@@ -1,7 +1,7 @@
 /* eslint quotes: 0 */
 
 window.pageConfig = {
-  layerIds: ["us_census","env","cities_labels"],
+  layerIds: ["us_census","env","cities_labels","separators"],
   zoom: 8,
   center: [7, 5],
   basemap_opacity: 0,

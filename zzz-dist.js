@@ -8,6 +8,7 @@
     colors: {
       background: '#FFFFFF',
       land: '#ffeab0',
+      separators: '#dddddd',
       quali: {
         important: '#cc2d7f',
         value1: '#e58606',

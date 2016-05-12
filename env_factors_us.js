@@ -1,7 +1,7 @@
 /* eslint quotes: 0 */
 
 window.pageConfig = {
-  layerIds: ["env"],
+  layerIds: ["env","separators"],
   zoom: 5,
   center: [14, -3],
   tooltip: {
