@@ -13,7 +13,7 @@
       },
       quanti: {
         scale1: ['#5c53a5','#ab5b9e','#dc6f8e','#f59280','#fabc82','#f3e79b'], //sunset2
-        scale2: ['#008080','#3b947f','#5da87e','#7dbb7d','#9bcf7d','#bce27f','#dfe895'] //Green3
+        scale2: ['#008080','#3b947f','#5da87e','#7dbb7d','#9bcf7d','#bce27f',/*'#dfe895'*/'#ffeab0'] //Green3
       }
     }
   }
@@ -89,7 +89,7 @@
                 "visible": true,
                 "options": {
                   "layer_name": "world_borders",
-                  "cartocss": "#world_borders_hd{\n  polygon-fill: "+tplCssConfig.colors.land+";\n  polygon-opacity: .5;\n  line-color: #FFF;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: 1;\n\n}\n",
+                  "cartocss": "#world_borders_hd{\n  polygon-fill: "+tplCssConfig.colors.land+";\n  polygon-opacity: .5;\n  line-color: #FFF;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: "+ (window.pageConfig.basemap_opacity || 1) +";\n\n}\n",
                   "cartocss_version": "2.1.1",
                   "interactivity": window.pageConfig.tooltip.interactivity,
                   "sql": cartodb.$('#tpl-sql-base').html(),
