@@ -95,6 +95,7 @@
     SELECT
     state_name,
     value,
+    to_char(value, 'FM999999999.00') value_label,
     st_transform(the_geom_us, 3857) the_geom_webmercator
     FROM nerikcarto.zika_env2_clean
     where state_name is not null
@@ -115,14 +116,20 @@
       marker-allow-overlap: true;
       marker-clip: false;
 
+      [zoom<=11] {
+        [value<=1] { marker-width: 48;  }
+        [value<=0.9] { marker-width: 33; marker-line-width: 1;  }
+        [value<=0.8] { marker-width: 21;  }
+        [value<=0.5] { marker-width: 12;  }
+      }
 
-      [zoom>=8] {
+      [zoom<=9] {
         [value<=1] { marker-width: 16;  }
         [value<=0.9] { marker-width: 11; marker-line-width: 1;  }
         [value<=0.8] { marker-width: 7;  }
         [value<=0.5] { marker-width: 4;  }
       }
-      [zoom=7] {
+      [zoom<=7] {
         [value<=1] { marker-width: 8;  }
         [value<=0.9] { marker-width: 6; marker-line-width: 1;  }
         [value<=0.8] { marker-width: 4;  }
@@ -137,17 +144,19 @@
         [value<=0.5] { marker-width: 1;  }
       }
     }
+    #zika_env2_clean::label[zoom>9]{
+      text-name: [value_label];
+      text-face-name: 'Lato Regular';
+      text-label-position-tolerance: 0;
+      text-fill: {{colors.quanti.scale1[0]}};
+      text-halo-fill: #FFF;
+      text-halo-radius: 2;
+      text-dy: 0;
+      text-allow-overlap: true;
+      text-placement: point;
+      text-placement-type: dummy;
+    }
 
-    #zika_env2_clean [ value <= 0.9] {
-       marker-width: 11;
-       marker-line-width: 1;
-    }
-    #zika_env2_clean [ value <= 0.8] {
-       marker-width: 7;
-    }
-    #zika_env2_clean [ value <= 0.5] {
-       marker-width: 4;
-    }
   </script>
 
   <script type="text/template" id="tpl-legend-env">
