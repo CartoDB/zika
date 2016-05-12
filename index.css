@@ -22,3 +22,18 @@ div.cartodb-legend-stack {
   top: 25px;
   bottom: auto;
 }
+
+div.cartodb-legend.bubble ul li.graph {
+  background: none;
+  width: auto;
+  height: auto;
+}
+
+div.cartodb-legend.bubble ul li {
+  top: 0;
+
+}
+div.cartodb-legend.bubble ul li.graph span {
+  display: inline-block;
+  border-radius: 99px;
+}

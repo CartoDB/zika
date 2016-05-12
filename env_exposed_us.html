@@ -42,14 +42,13 @@
 
   <script type="text/template" id="tpl-css-us_census">
     #us_census{
-      polygon-fill: #FFFFB2;
-      polygon-opacity: 0.8;
-      line-color: #FFF;
+      polygon-opacity: 0.7;
       line-width: 0;
       line-opacity: 1;
+      polygon-fill: #ccc;
     }
     #us_census [ women_childbearing_ratio <= 1] {
-       polygon-fill: {{colors.quanti.scale2[2]}};
+       polygon-fill: {{colors.quanti.scale2[1]}};
     }
     #us_census [ women_childbearing_ratio <= 0.16433962264150945] {
        polygon-fill: {{colors.quanti.scale2[3]}};
@@ -77,11 +76,11 @@
     	</li>
     	<li class="graph count_315">
     	<div class="colors">
-    	<div class="quartile" style="background-color:#FFFFB2"></div>
-    	<div class="quartile" style="background-color:#FECC5C"></div>
-    	<div class="quartile" style="background-color:#FD8D3C"></div>
-    	<div class="quartile" style="background-color:#F03B20"></div>
-    	<div class="quartile" style="background-color:#BD0026"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale2[6]}}"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale2[5]}}"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale2[4]}}"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale2[3]}}"></div>
+    	<div class="quartile" style="background-color:{{colors.quanti.scale2[1]}}"></div>
     	</div>
     	</li>
     </ul>
@@ -106,7 +105,7 @@
   <script type="text/template" id="tpl-css-env">
     #zika_env2_clean{
       marker-fill-opacity: 0;
-      marker-line-color: {{colors.quali.scale1[0]}};
+      marker-line-color: {{colors.quanti.scale1[0]}};
       marker-line-width: 2;
       marker-line-opacity: 1;
       marker-placement: point;
@@ -155,14 +154,18 @@
     <div class='cartodb-legend bubble'>
     <div class="legend-title">zika environmental sustainability index</div>
     <ul>
-    	<li>
-    	0.185698
+    	<li style="top: 10px">
+    	0.1
     	</li>
-    	<li class="graph" style="background: rgb(255, 92, 0);">
-    		<div class="bubbles"></div>
+    	<li class="graph">
+        <span style="width: 4px; height: 4px; border: 1px solid {{colors.quanti.scale1[0]}}"></span>
+        <span style="width: 7px; height: 7px; border: 1px solid {{colors.quanti.scale1[0]}}"></span>
+        <span style="width: 11px; height: 11px; border: 1px solid {{colors.quanti.scale1[0]}}"></span>
+        <span style="width: 16px; height: 16px; border: 2px solid {{colors.quanti.scale1[0]}}"></span>
+    		<!-- <div class="bubbles"></div> -->
     	</li>
-    	<li>
-    	0.991191
+    	<li style="top: 10px">
+    	1
     	</li>
     </ul>
     </div>
@@ -206,8 +209,6 @@
         [scalerank<3] { text-size: 13;  }
       }
     }
-
-
   </script>
 
 
