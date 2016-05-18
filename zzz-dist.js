@@ -138,7 +138,8 @@
   function main() {
 
     _.templateSettings = {
-      interpolate: /\{\{(.+?)\}\}/g
+      interpolate: /\{\{(.+?)\}\}/g,
+      evaluate: /<%([\s\S]+?)%>/g
     };
 
     vizJSON = prepareLayers(vizJSON);
@@ -147,7 +148,11 @@
       no_cdn: false,
       renderMenu: false
     }, function (err, dashboard) {
+
+      window.dashboard = dashboard;
       window.widgets = vis._dataviewsCollection.models;
+
+      if (window.onWidgetsLoaded) window.onWidgetsLoaded();
 
       console.log(err);
       // inject dist selector
@@ -164,6 +169,8 @@
     var vizJSONLayers = _vizJSON.layers[1].options.layer_definition.layers;
     var i = 1;
     layerIds.forEach(function (layerId) {
+      var sql = cartodb._.template(cartodb.$('#tpl-sql-' + layerId).html())({ data: {} });
+      console.log(sql);
       var layer = {
         id: layerId,
         "type": "CartoDB",
@@ -172,7 +179,7 @@
         options: {
           cartocss: cartodb._.template(cartodb.$('#tpl-css-' + layerId).html())(tplCssConfig),
           "cartocss_version": "2.1.1",
-          sql: cartodb._.template(cartodb.$('#tpl-sql-' + layerId).html())({})
+          sql: sql
         }
       };
 

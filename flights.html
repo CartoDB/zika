@@ -63,26 +63,41 @@ seats_total,
 
 )
 
-select * from f where dst_country_name in ('United Kingdom', 'United States', 'Canada', 'France', 'Germany', 'Spain')
+<% if (data.selected_country) { %>
+  select *,
+  dst_country_name = '{{data.selected_country}}' selected
+<% } else if (data.selected_city) { %>
+  select *,
+  dst_municipality = '{{data.selected_city}}' selected
+<% } else { %>
+  select *, false selected
+<% } %>
+from flights_paths_all
+
   </script>
 
 
   <script type="text/template" id="tpl-css-flights">
     #flights_centralam{
       polygon-opacity: 0;
-      line-color: #F11810;
-      line-width: 2;
-      line-opacity: 0.8;
+      line-color: {{colors.quali.important}};
+      line-width: .1;
+      line-opacity: 0.01;
+
+      [selected=true] {
+        line-opacity: 1;
+        line-width: 1;
+      }
     }
 
     #zika_flights4 [ seats_total <= 150000] {
-         line-width: 1;
+         line-width: .75;
     }
     #zika_flights4 [ seats_total <= 75000] {
-         line-width: .5;
+         line-width: .50;
     }
     #zika_flights4 [ seats_total <= 50000] {
-         line-width: .25;
+        line-width: .25;
     }
 
   </script>
@@ -90,24 +105,82 @@ select * from f where dst_country_name in ('United Kingdom', 'United States', 'C
 
 
 
-  <script type="text/template" id="tpl-legend-flights">
-    <div class='cartodb-legend custom'>
-      <!-- <ul>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.value1}}"></div>
-      		one locally transmitted zika case
-      	</li>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.value2}}"></div>
-      		one imported zika case
-      	</li>
-      	<li>
-      		<div class="bullet" style="background:{{colors.quali.important}}"></div>
-      		one death directly due to zika
-      	</li>
-      </ul> -->
-    </div>
-  </script>
+
+
+    <script type="text/template" id="tpl-sql-cities">
+      SELECT * FROM flights_cities
+    </script>
+
+
+    <script type="text/template" id="tpl-css-cities">
+
+#flights{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF;
+  marker-line-width: 0;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-multi-policy: largest;
+  marker-type: ellipse;
+  marker-fill: {{colors.quali.value2}};
+  marker-allow-overlap: true;
+  marker-clip: false;
+}
+#flights [ seats_total_sum <= 18326232] {
+   marker-width: 20.0;
+}
+#flights [ seats_total_sum <= 8546076] {
+   marker-width: 18.0;
+}
+#flights [ seats_total_sum <= 4370149] {
+   marker-width: 16.0;
+}
+#flights [ seats_total_sum <= 1303405] {
+   marker-width: 14.0;
+}
+#flights [ seats_total_sum <= 609571] {
+   marker-width: 12.0;
+}
+#flights [ seats_total_sum <= 162593] {
+   marker-width: 10.0;
+}
+#flights [ seats_total_sum <= 45352] {
+   marker-width: 8.0;
+}
+#flights [ seats_total_sum <= 21832] {
+   marker-width: 6.0;
+}
+#flights [ seats_total_sum <= 20493] {
+   marker-width: 4.0;
+}
+#flights [ seats_total_sum <= 1050] {
+   marker-width: 2.0;
+}
+    </script>
+
+
+
+      <script type="text/template" id="tpl-legend-cities">
+        <div class='cartodb-legend bubble'>
+        <div class="legend-title">air traffic from countries with<br> locally transmitted zika (#seats/year)</div>
+        <ul>
+          <li style="top: 0px">
+          1,000
+          </li>
+          <li class="graph">
+            <span style="width: 3px; height: 3px; background-color: {{colors.quali.value2}}"></span>
+            <span style="width: 7px; height: 7px; background-color: {{colors.quali.value2}}"></span>
+            <span style="width: 11px; height: 11px; background-color: {{colors.quali.value2}}"></span>
+            <span style="width: 16px; height: 16px; background-color: {{colors.quali.value2}}"></span>
+            <!-- <div class="bubbles"></div> -->
+          </li>
+          <li style="top: 0px">
+          18,000,000
+          </li>
+        </ul>
+        </div>
+
+
 
   <script type="text/javascript" src="zzz-libs-dist.js"></script>
 
