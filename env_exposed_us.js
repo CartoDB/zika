@@ -17,6 +17,16 @@ window.pageConfig = {
   },
   widgets: [
     {
+      "type": "histogram",
+      "title": "Women in childbearing age (ratio)",
+      "layer_id": "us_census",
+      "options": {
+          "type": "histogram",
+          "column": "women_childbearing_ratio",
+          "sync": true
+      }
+    },
+    {
       "id": "sum_women",
       "type": "formula",
       "title": "Women in childbearing age (total)",
@@ -27,13 +37,23 @@ window.pageConfig = {
       }
     },
     {
-      "type": "histogram",
-      "title": "Women in childbearing age (ratio)",
+      "id": "sum_hispa",
+      "type": "formula",
+      "title": "Hispanic or latino population (total)",
       "layer_id": "us_census",
       "options": {
-          "type": "histogram",
-          "column": "women_childbearing_ratio",
-          "sync": true
+        "column": "hispanic_or_latino_pop",
+        "operation": "sum"
+      }
+    },
+    {
+      "id": "sum_poverty",
+      "type": "formula",
+      "title": "Population living below poverty line (total)",
+      "layer_id": "us_census",
+      "options": {
+        "column": "income_below_poverty_level",
+        "operation": "sum"
       }
     },
     {
