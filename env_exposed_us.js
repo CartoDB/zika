@@ -37,6 +37,16 @@ window.pageConfig = {
       }
     },
     {
+      "type": "histogram",
+      "title": "Hispanic or latino population (ratio)",
+      "layer_id": "us_census",
+      "options": {
+        "type": "histogram",
+        "column": "hispanic_or_latino_pop_ratio",
+        "sync": true
+      }
+    },
+    {
       "id": "sum_hispa",
       "type": "formula",
       "title": "Hispanic or latino population (total)",
@@ -44,6 +54,16 @@ window.pageConfig = {
       "options": {
         "column": "hispanic_or_latino_pop",
         "operation": "sum"
+      }
+    },
+    {
+      "type": "histogram",
+      "title": "Population living below poverty line (ratio)",
+      "layer_id": "us_census",
+      "options": {
+        "type": "histogram",
+        "column": "income_below_poverty_level_ratio",
+        "sync": true
       }
     },
     {
