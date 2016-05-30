@@ -1,5 +1,20 @@
 /* eslint quotes: 0 */
 
+window.onWidgetsLoaded = function() {
+  var layerSelector = cdb.$( cdb.$('#tpl-layer-selector').html() );
+
+  layerSelector.insertBefore(cdb.$('.CDB-Widget').eq(0));
+
+  cdb.$('.js-layerSelect').find('option[value="'+ window.tplSelected +'"]').attr('selected', true);
+
+  layerSelector.on('change', function (e) {
+    var tpl = e.target.value;
+    window.tplSelected = tpl;
+    window.pageConfig.layerIds = [{layerId: "us_census", tpl: tpl},"env","cities_labels","separators"];
+    window.loadDashboard();
+  })
+}
+
 window.pageConfig = {
   layerIds: ["us_census","env","cities_labels","separators"],
   zoom: 8,
@@ -37,23 +52,14 @@ window.pageConfig = {
       }
     },
     {
-      "type": "histogram",
-      "title": "Hispanic or latino population (ratio)",
+      "id": "ethnicity",
+      "type": "category",
+      "title": "Largest ethnic group",
       "layer_id": "us_census",
       "options": {
-        "type": "histogram",
-        "column": "hispanic_or_latino_pop_ratio",
-        "sync": true
-      }
-    },
-    {
-      "id": "sum_hispa",
-      "type": "formula",
-      "title": "Hispanic or latino population (total)",
-      "layer_id": "us_census",
-      "options": {
-        "column": "hispanic_or_latino_pop",
-        "operation": "sum"
+        "type": "aggregation",
+        "column": "largest_ethnic_group",
+        "aggregation": "count"
       }
     },
     {

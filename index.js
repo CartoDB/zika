@@ -19,7 +19,7 @@
     }
   }
 
-  var vizJSON = {
+  var baseVizJSON = {
     "user": {
       "fullname": "",
       "avatar_url": ""
@@ -142,14 +142,10 @@
     }
   };
 
-  function main() {
 
-    _.templateSettings = {
-      interpolate: /\{\{(.+?)\}\}/g,
-      evaluate: /<%([\s\S]+?)%>/g
-    };
+  window.loadDashboard = function() {
 
-    vizJSON = prepareLayers(vizJSON);
+    var vizJSON = prepareLayers(baseVizJSON);
 
     cartodb.deepInsights.createDashboard('#dashboard', vizJSON, {
      no_cdn: false,
@@ -160,49 +156,64 @@
       window.widgets = vis._dataviewsCollection.models;
 
       if (window.onWidgetsLoaded) window.onWidgetsLoaded();
-
-      console.log(err)
-      // inject dist selector
-      // var distSelector = cdb.$('.js-country-selector');
-      // distSelector.insertBefore(cdb.$('.CDB-Widget').eq(0));
     });
 
   }
 
+  function main() {
+
+    _.templateSettings = {
+      interpolate: /\{\{(.+?)\}\}/g,
+      evaluate: /<%([\s\S]+?)%>/g
+    };
+
+    window.loadDashboard();
+
+  }
+
+
+
   function prepareLayers(_vizJSON) {
-    var layerIds = window.pageConfig.layerIds;
-    console.log(layerIds);
+    var layers = window.pageConfig.layerIds;
 
     //sublayers
     var vizJSONLayers = _vizJSON.layers[1].options.layer_definition.layers;
+
     var i = 1;
-    layerIds.forEach(layerId => {
-      var sql = cartodb._.template( cartodb.$('#tpl-sql-'+layerId).html() )({data: {}});
+    layers.forEach(layer => {
+      var layerId = (layer.layerId) ? layer.layerId : layer;
+      var layerTpl = (layer.tpl) ? layer.tpl : layer;
+
+      var sql = cartodb._.template( cartodb.$('#tpl-sql-'+layerTpl).html() )({data: {}});
       console.log(sql)
-      var layer = {
+      var layerObj = {
         id: layerId,
         "type": "CartoDB",
-        order: i++,
+        order: i,
         visible: true,
         options: {
-          cartocss: cartodb._.template( cartodb.$('#tpl-css-'+layerId).html() )(tplCssConfig),
+          cartocss: cartodb._.template( cartodb.$('#tpl-css-'+layerTpl).html() )(tplCssConfig),
           "cartocss_version": "2.1.1",
           sql: sql
         }
       };
 
-      if (cartodb.$('#tpl-legend-'+layerId).length) {
-        layer.legend = {
+      if (cartodb.$('#tpl-legend-'+layerTpl).length) {
+        layerObj.legend = {
           "type": "custom",
           "show_title": false,
           "visible": true,
-          template: cartodb._.template( cartodb.$('#tpl-legend-'+layerId).html() )(tplCssConfig)
+          template: cartodb._.template( cartodb.$('#tpl-legend-'+layerTpl).html() )(tplCssConfig)
         }
       }
 
-      vizJSONLayers.push(layer);
+      console.log(i)
+      vizJSONLayers[i] = layerObj;
+      i++;
 
     });
+
+
     console.log(_vizJSON);
     return _vizJSON;
   }

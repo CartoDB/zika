@@ -17,6 +17,29 @@
 <body>
   <div id="dashboard"></div>
 
+  <script type="text/template" id="tpl-layer-selector">
+    <div class="CDB-Widget CDB-Widget--light" style="display: block;">
+      <div class="CDB-Widget-body">
+        <div class="CDB-Widget-header js-header">
+          <div class="CDB-Widget-title CDB-Widget-contentSpaced">
+            <h3 class="CDB-Text CDB-Size-large u-ellipsis js-title">Population</h3>
+          </div>
+        </div>
+        <div class="CDB-Widget-content">
+          <div class="CDB-Widget-filter CDB-Widget-contentSpaced">
+            <p class="CDB-Text CDB-Size-small is-semibold u-upperCase js-Range-val">Show population layer:</p>
+          </div>
+          <div>
+            <select name="select" class="js-layerSelect">
+              <option value="us_census" selected>Women of childbearing age</option>
+              <option value="us_census_ethnicity">Largest ethnic group</option>
+              <option value="us_census_poverty">Income below poverty line</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
 
   <script type="text/template" id="tpl-sql-base">
     select
@@ -83,6 +106,113 @@
     </ul>
     </div>
   </script>
+
+
+
+
+
+
+
+    <script type="text/template" id="tpl-sql-us_census_ethnicity">
+      SELECT * FROM us_census where has_risk = true
+    </script>
+
+
+    <script type="text/template" id="tpl-css-us_census_ethnicity">
+      #us_census{
+        polygon-opacity: .7;
+        line-width: 0;
+        line-opacity: 1;
+      }
+
+      #us_census[largest_ethnic_group="asian"] {
+         polygon-fill: #fff;
+      }
+      #us_census[largest_ethnic_group="black"] {
+         polygon-fill: {{colors.quali.value1}};
+      }
+      #us_census[largest_ethnic_group="hispanic"] {
+         polygon-fill: {{colors.quali.important}};
+      }
+      #us_census[largest_ethnic_group="white"] {
+         polygon-fill: {{colors.quali.value2}};
+      }
+
+    </script>
+
+    <script type="text/template" id="tpl-legend-us_census_ethnicity">
+      <div class='cartodb-legend category'>
+      <div class="legend-title">largest ethnic group</div>
+      <ul>
+      	<li>
+      		<div class="bullet" style="background: #fff"></div> asian
+      	</li>
+      	<li>
+      		<div class="bullet" style="background: {{colors.quali.value1}}"></div> black
+      	</li>
+      	<li>
+      		<div class="bullet" style="background: {{colors.quali.important}}"></div> hispanic
+      	</li>
+      	<li>
+      		<div class="bullet" style="background: {{colors.quali.value2}}"></div> white
+      	</li>
+      </ul>
+      </div>
+    </script>
+
+
+
+
+
+
+    <script type="text/template" id="tpl-sql-us_census_poverty">
+      SELECT * FROM us_census where has_risk = true
+    </script>
+
+
+    <script type="text/template" id="tpl-css-us_census_poverty">
+      #us_census{
+        polygon-opacity: 1;
+        line-width: 0;
+        line-opacity: 1;
+      }
+      #us_census [ income_below_poverty_level_ratio <= 1] {
+         polygon-fill: {{colors.quanti.scale1[1]}};
+      }
+      #us_census [ income_below_poverty_level_ratio <= 0.3] {
+         polygon-fill: {{colors.quanti.scale1[2]}};
+      }
+      #us_census [ income_below_poverty_level_ratio <= 0.2] {
+         polygon-fill: {{colors.quanti.scale1[3]}};
+      }
+      #us_census [ income_below_poverty_level_ratio <= 0.1] {
+         polygon-fill: {{colors.quanti.scale1[4]}};
+      }
+
+    </script>
+
+    <script type="text/template" id="tpl-legend-us_census_poverty">
+      <div class='cartodb-legend choropleth'>
+      <div class="legend-title">income below poverty line ratio</div>
+      <ul>
+      	<li class="min">
+      		less
+      	</li>
+      	<li class="max">
+      		more
+      	</li>
+      	<li class="graph count_315">
+      	<div class="colors">
+      	<div class="quartile" style="background-color:{{colors.quanti.scale1[4]}}"></div>
+      	<div class="quartile" style="background-color:{{colors.quanti.scale1[3]}}"></div>
+      	<div class="quartile" style="background-color:{{colors.quanti.scale1[2]}}"></div>
+      	<div class="quartile" style="background-color:{{colors.quanti.scale1[1]}}"></div>
+      	</div>
+      	</li>
+      </ul>
+      </div>
+    </script>
+
 
 
 

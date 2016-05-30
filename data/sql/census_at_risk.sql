@@ -1,6 +1,6 @@
 
 -- add column that has env index > 0
---alter table us_census add column has_risk bool
+-- alter table us_census add column has_risk bool
 
 
 -- update us_census set has_risk = (select ST_Contains(the_geom_4326, zika_env2_clean.the_geom) from zika_env2_clean limit 1) where cartodb_id >= 20000 and cartodb_id < 35000
@@ -36,7 +36,8 @@
 
 
 UPDATE us_census a
-SET has_risk = st_intersects(a.the_geom, b.the_geom)
-FROM zika_atrisk_us_zone b
+SET has_risk =
+st_intersects(a.the_geom, b.the_geom)
+FROM zika_atrisk_us_zone_1 b
 WHERE
   st_geometrytype(a.the_geom) = 'ST_MultiPolygon'
