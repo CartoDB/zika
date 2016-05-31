@@ -32,44 +32,24 @@ window.pageConfig = {
   },
   widgets: [
     {
-      "type": "histogram",
-      "title": "Women in childbearing age (ratio)",
+      "id": "sum_total_pop",
+      "type": "formula",
+      "title": "Population At Risk",
       "layer_id": "us_census",
       "options": {
-          "type": "histogram",
-          "column": "women_childbearing_ratio",
-          "sync": true
+        "column": "total_pop",
+        "operation": "sum"
       }
     },
+
     {
       "id": "sum_women",
       "type": "formula",
-      "title": "Women in childbearing age (total)",
+      "title": "Women of Child Bearing Age (total)",
       "layer_id": "us_census",
       "options": {
         "column": "women_childbearing",
         "operation": "sum"
-      }
-    },
-    {
-      "id": "ethnicity",
-      "type": "category",
-      "title": "Largest ethnic group",
-      "layer_id": "us_census",
-      "options": {
-        "type": "aggregation",
-        "column": "largest_ethnic_group",
-        "aggregation": "count"
-      }
-    },
-    {
-      "type": "histogram",
-      "title": "Population living below poverty line (ratio)",
-      "layer_id": "us_census",
-      "options": {
-        "type": "histogram",
-        "column": "income_below_poverty_level_ratio",
-        "sync": true
       }
     },
     {
@@ -82,15 +62,38 @@ window.pageConfig = {
         "operation": "sum"
       }
     },
+
     {
-      "id": "sum_total_pop",
-      "type": "formula",
-      "title": "Total population",
+      "id": "ethnicity",
+      "type": "category",
+      "title": "At risk by racial demographic",
       "layer_id": "us_census",
       "options": {
-        "column": "total_pop",
-        "operation": "sum"
+        "type": "aggregation",
+        "column": "largest_ethnic_group",
+        "aggregation": "count"
       }
     },
+    {
+      "type": "histogram",
+      "title": "Women of Child Bearing Age (ratio)",
+      "layer_id": "us_census",
+      "options": {
+          "type": "histogram",
+          "column": "women_childbearing_ratio",
+          "sync": true
+      }
+    },
+    {
+      "type": "histogram",
+      "title": "Population living below poverty line (ratio)",
+      "layer_id": "us_census",
+      "options": {
+        "type": "histogram",
+        "column": "income_below_poverty_level_ratio",
+        "sync": true
+      }
+    },
+
   ]
 }
