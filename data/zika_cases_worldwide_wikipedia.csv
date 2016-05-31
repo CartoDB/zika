@@ -1,72 +1,82 @@
 "country_name","region","autochtonous_confirmed","autochtonous_suspected","imported_confirmed","deaths"
-"Aruba","americas","4","0",0,"0"
+"Argentina","americas","12","1556",0,"0"
+"Aruba","americas","17","0",0,"0"
 "Barbados","americas","7","316",0,"0"
-"Bolivia","americas","25","0",0,"0"
-"Bonaire","americas","1","0",0,"0"
-"Brazil","americas","534","72062",0,"4"
-"Colombia","americas","2603","58790",0,"0"
-"Costa Rica","americas","12","0",0,"0"
+"Belize","americas","2","0",0,"0"
+"Bolivia","americas","11","99",0,"0"
+"Bonaire","americas","3","0",0,"0"
+"Brazil","americas","31616","120161",0,"3"
+"Colombia","americas","6402","77487",0,"0"
+"Costa Rica","americas","44","375",0,"0"
 "Cuba","americas","1","0",0,"0"
-"Curaçao","americas","1","0",0,"0"
-"Dominica","americas","1","0",0,"0"
-"Dominican Republic","americas","55","1090",0,"1"
-"Ecuador","americas","63","0",0,"0"
-"El Salvador","americas","46","9772",0,"0"
-"French Guiana","americas","355","3620",0,"0"
-"Guadeloupe","americas","191","1090",0,"0"
+"Curaçao","americas","73","0",0,"0"
+"Dominica","americas","28","203",0,"0"
+"Dominican Republic","americas","73","2370",0,"6"
+"Ecuador","americas","114","217",0,"0"
+"El Salvador","americas","46","11411",0,"0"
+"French Guiana","americas","483","6700",0,"0"
+"Grenada","americas","1","0",0,"0"
+"Guadeloupe","americas","379","6320",0,"0"
 "Guatemala","americas","261","915",0,"0"
-"Guyana","americas","1","0",0,"0"
+"Guyana","americas","6","0",0,"0"
 "Haiti","americas","5","1777",0,"0"
-"Honduras","americas","2","16536",0,"0"
-"Jamaica","americas","4","0",0,"0"
-"Martinique","americas","12","16650",0,"0"
-"Mexico","americas","222","0",0,"0"
-"Nicaragua","americas","131","0",0,"0"
-"Panama","americas","196","0",0,"0"
-"Paraguay","americas","7","0",0,"0"
-"Puerto Rico","americas","436","0",0,"0"
+"Honduras","americas","2","19868",0,"2"
+"Jamaica","americas","8","646",0,"0"
+"Martinique","americas","12","25650",0,"1"
+"Mexico","americas","310","0",0,"0"
+"Netherlands Antilles","americas","90","0",0,"0"
+"Nicaragua","americas","207","0",0,"0"
+"Panama","americas","274","0",0,"0"
+"Paraguay","americas","8","273",0,"0"
+"Peru","americas","4","0",0,"0"
+"Puerto Rico","americas","1106","10032",0,"1"
+"Saint Barthélemy","americas","1","26",0,"0"
 "Saint Lucia","americas","2","0",0,"0"
-"Saint Martin","americas","42","160",0,"0"
-"Saint Vincent and the Grenadines","americas","1","0",0,"0"
-"Sint Maarten","americas","2","0",0,"0"
-"Suriname","americas","485","3440",0,"4"
-"Trinidad and Tobago","americas","13","0",0,"0"
-"U.S. Virgin Islands","americas","13","42",0,"0"
-"Venezuela","americas","352","15495",0,"1"
+"Saint Martin","americas","99","425",0,"0"
+"Saint Vincent and the Grenadines","americas","2","0",0,"0"
+"Sint Maarten","americas","7","0",0,"0"
+"Suriname","americas","527","2503",0,"4"
+"Trinidad and Tobago","americas","16","0",0,"0"
+"Venezuela","americas","352","31224",0,"0"
+"U.S. Virgin Islands","americas","21","228",0,"0"
 "Cape Verde","africa_asia_oceania","2","7457",0,0
 "Laos","africa_asia_oceania","0","0",0,0
 "Maldives","africa_asia_oceania","1","0",0,0
 "Philippines","africa_asia_oceania","1","0",0,0
 "Thailand","africa_asia_oceania","1","0",0,0
 "Vietnam","africa_asia_oceania","3","0",0,0
-"American Samoa","africa_asia_oceania","14","403",0,0
-"Fiji","africa_asia_oceania","15","0",0,0
-"Kosrae","africa_asia_oceania","1","0",0,0
-"Marshall Islands","africa_asia_oceania","1","0",0,0
+"American Samoa","africa_asia_oceania","17","403",0,0
+"Fiji","africa_asia_oceania","17","0",0,0
+"Kosrae","africa_asia_oceania","12","66",0,0
+"Marshall Islands","africa_asia_oceania","2","34",0,0
+"Nauru","africa_asia_oceania","0","0",0,0
 "New Caledonia","africa_asia_oceania","73","0",0,0
-"Papua New Guinea","africa_asia_oceania","0","0",0,0
+"Papua New Guinea","africa_asia_oceania","6","0",0,0
 "Samoa","africa_asia_oceania","10","0",0,0
 "Solomon Islands","africa_asia_oceania","302","0",0,0
 "Tonga","africa_asia_oceania","36","2010",0,0
 "Vanuatu","africa_asia_oceania","0","0",0,0
 "Madagascar","imported",0,0,"1",0
+"Réunion","imported",0,0,"2",0
 "South Africa","imported",0,0,"1",0
-"Argentina","imported",0,0,"9",0
-"Canada","imported",0,0,"44",0
+"Antigua and Barbuda","imported",0,0,"1",0
+"Canada","imported",0,0,"83",0
 "Chile","imported",0,0,"10",0
-"Peru","imported",0,0,"4",0
-"United States","imported",0,0,"346",0
-"China","imported",0,0,"15",0
+"Uruguay","imported",0,0,"1",0
+"United States","imported",0,0,"591",0
+"China","imported",0,0,"18",0
 "Israel","imported",0,0,"4",0
-"Japan","imported",0,0,"2",0
-"Russia","imported",0,0,"1",0
-"South Korea","imported",0,0,"1",0
-"Taiwan","imported",0,0,"1",0
+"Japan","imported",0,0,"5",0
+"Russia","imported",0,0,"3",0
+"Singapore","imported",0,0,"1",0
+"South Korea","imported",0,0,"5",0
+"Taiwan","imported",0,0,"2",0
 "Austria","imported",0,0,"1",0
+"Canary Islands","imported",0,0,"3",0
 "Czech Republic","imported",0,0,"4",0
 "Denmark","imported",0,0,"4",0
 "Finland","imported",0,0,"2",0
-"France","imported",0,0,"89",0
+"France","imported",0,0,"385",0
 "Germany","imported",0,0,"26",0
 "Ireland","imported",0,0,"3",0
 "Italy","imported",0,0,"9",0
@@ -74,12 +84,13 @@
 "Malta","imported",0,0,"1",0
 "Netherlands","imported",0,0,"30",0
 "Norway","imported",0,0,"12",0
-"Portugal","imported",0,0,"11",0
+"Portugal","imported",0,0,"17",0
 "Slovakia","imported",0,0,"1",0
 "Slovenia","imported",0,0,"1",0
-"Spain","imported",0,0,"58",0
+"Spain","imported",0,0,"124",0
 "Sweden","imported",0,0,"2",0
-"Switzerland","imported",0,0,"2",0
-"United Kingdom","imported",0,0,"12",0
+"Switzerland","imported",0,0,"16",0
+"United Kingdom","imported",0,0,"25",0
 "Australia","imported",0,0,"20",0
-"New Zealand","imported",0,0,"85",0
+"New Zealand","imported",0,0,"91",0
+"^ As of 27 May 2016","imported",0,0,"0",0
