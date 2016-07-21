@@ -130,16 +130,16 @@
       }
 
       #us_census[largest_ethnic_group="asian"] {
-         polygon-fill: #fff;
+         polygon-fill: #C6C8CA;
       }
       #us_census[largest_ethnic_group="black"] {
-         polygon-fill: {{colors.quali.value1}};
+         polygon-fill: #F9A224;
       }
       #us_census[largest_ethnic_group="hispanic"] {
-         polygon-fill: {{colors.quali.important}};
+         polygon-fill: #BB2B77;
       }
       #us_census[largest_ethnic_group="white"] {
-         polygon-fill: {{colors.quali.value2}};
+         polygon-fill: #0098DB;
       }
 
     </script>
@@ -149,16 +149,16 @@
       <div class="legend-title">largest ethnic group</div>
       <ul>
       	<li>
-      		<div class="bullet" style="background: #fff"></div> asian
+      		<div class="bullet" style="background: #C6C8CA"></div> asian
       	</li>
       	<li>
-      		<div class="bullet" style="background: {{colors.quali.value1}}"></div> black
+      		<div class="bullet" style="background: #F9A224"></div> black
       	</li>
       	<li>
-      		<div class="bullet" style="background: {{colors.quali.important}}"></div> hispanic
+      		<div class="bullet" style="background: #BB2B77"></div> hispanic
       	</li>
       	<li>
-      		<div class="bullet" style="background: {{colors.quali.value2}}"></div> white
+      		<div class="bullet" style="background: #0098DB"></div> white
       	</li>
       </ul>
       </div>
@@ -272,7 +272,7 @@
       }
       [zoom<=6] {
         marker-line-width: 0;
-        marker-fill-opacity: 1;
+        marker-fill-opacity: 0;
         [value<=1] { marker-width: 7;  }
         [value<=0.9] { marker-width: 5;   }
         [value<=0.8] { marker-width: 3;  }
