@@ -71,16 +71,19 @@
       polygon-fill: #ccc;
     }
     #us_census [ women_childbearing_ratio <= 1] {
-       polygon-fill: {{colors.quanti.scale2[1]}};
+       polygon-fill: #CE3139;
+    }
+    #us_census [ women_childbearing_ratio <= 0.2] {
+       polygon-fill: #EE3A43;
     }
     #us_census [ women_childbearing_ratio <= 0.16433962264150945] {
-       polygon-fill: {{colors.quanti.scale2[3]}};
+       polygon-fill: #F9A224;
     }
     #us_census [ women_childbearing_ratio <= 0.13788562829194884] {
-       polygon-fill: {{colors.quanti.scale2[4]}};
+       polygon-fill: #FFD63D;
     }
     #us_census [ women_childbearing_ratio <= 0.117774046533941] {
-       polygon-fill: {{colors.quanti.scale2[5]}};
+       polygon-fill: #EEE2BD;
     }
 
   </script>
@@ -97,10 +100,11 @@
     	</li>
     	<li class="graph count_315">
     	<div class="colors">
-    	<div class="quartile" style="background-color:{{colors.quanti.scale2[5]}}"></div>
-    	<div class="quartile" style="background-color:{{colors.quanti.scale2[4]}}"></div>
-    	<div class="quartile" style="background-color:{{colors.quanti.scale2[3]}}"></div>
-    	<div class="quartile" style="background-color:{{colors.quanti.scale2[1]}}"></div>
+    	<div class="quartile" style="background-color: #CE3139"></div>
+    	<div class="quartile" style="background-color: #EE3A43"></div>
+    	<div class="quartile" style="background-color: #F9A224"></div>
+    	<div class="quartile" style="background-color: #FFD63D"></div>
+    	<div class="quartile" style="background-color: #EEE2BD"></div>
     	</div>
     	</li>
     </ul>
