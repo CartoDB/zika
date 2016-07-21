@@ -100,11 +100,11 @@
     	</li>
     	<li class="graph count_315">
     	<div class="colors">
-    	<div class="quartile" style="background-color: #CE3139"></div>
-    	<div class="quartile" style="background-color: #EE3A43"></div>
-    	<div class="quartile" style="background-color: #F9A224"></div>
-    	<div class="quartile" style="background-color: #FFD63D"></div>
     	<div class="quartile" style="background-color: #EEE2BD"></div>
+    	<div class="quartile" style="background-color: #FFD63D"></div>
+    	<div class="quartile" style="background-color: #F9A224"></div>
+    	<div class="quartile" style="background-color: #EE3A43"></div>
+    	<div class="quartile" style="background-color: #CE3139"></div>
     	</div>
     	</li>
     </ul>
@@ -181,16 +181,19 @@
         line-opacity: 1;
       }
       #us_census [ income_below_poverty_level_ratio <= 1] {
-         polygon-fill: {{colors.quanti.scale1[1]}};
+         polygon-fill: #CE3139;
+      }
+      #us_census [ income_below_poverty_level_ratio <= 0.5] {
+         polygon-fill: #EE3A43;
       }
       #us_census [ income_below_poverty_level_ratio <= 0.3] {
-         polygon-fill: {{colors.quanti.scale1[2]}};
+         polygon-fill: #F9A224;
       }
       #us_census [ income_below_poverty_level_ratio <= 0.2] {
-         polygon-fill: {{colors.quanti.scale1[3]}};
+         polygon-fill: #FFD63D;
       }
       #us_census [ income_below_poverty_level_ratio <= 0.1] {
-         polygon-fill: {{colors.quanti.scale1[4]}};
+         polygon-fill: #EEE2BD;
       }
 
     </script>
@@ -207,10 +210,11 @@
       	</li>
       	<li class="graph count_315">
       	<div class="colors">
-      	<div class="quartile" style="background-color:{{colors.quanti.scale1[4]}}"></div>
-      	<div class="quartile" style="background-color:{{colors.quanti.scale1[3]}}"></div>
-      	<div class="quartile" style="background-color:{{colors.quanti.scale1[2]}}"></div>
-      	<div class="quartile" style="background-color:{{colors.quanti.scale1[1]}}"></div>
+      	<div class="quartile" style="background-color: #EEE2BD"></div>
+      	<div class="quartile" style="background-color: #FFD63D"></div>
+      	<div class="quartile" style="background-color: #F9A224"></div>
+      	<div class="quartile" style="background-color: #EE3A43"></div>
+      	<div class="quartile" style="background-color: #CE3139"></div>
       	</div>
       	</li>
       </ul>
@@ -239,7 +243,7 @@
       marker-fill-opacity: 0;
       marker-line-color: {{colors.quanti.scale1[0]}};
       marker-line-width: 2;
-      marker-line-opacity: 1;
+      marker-line-opacity: 0;
       marker-placement: point;
       marker-multi-policy: largest;
       marker-type: ellipse;
@@ -275,7 +279,7 @@
         [value<=0.5] { marker-width: 1;  }
       }
     }
-    #zika_env2_clean::label[zoom>9]{
+    #zika_env2_clean::label[zoom>20]{
       text-name: [value_label];
       text-face-name: 'Lato Bold';
       text-label-position-tolerance: 0;
