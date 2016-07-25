@@ -91,7 +91,7 @@
               "layer_name": "world_borders",
               "cartocss": "#world_borders_hd{\n  polygon-fill: " + tplCssConfig.colors.land + ";\n  polygon-opacity: .5;\n  line-color: #898B8E;\n  line-width: 1;\n  line-opacity: 1;\n}\n#world_borders_hd[has_cases=true]{\n  polygon-opacity: " + (window.pageConfig.basemap_opacity || 1) + ";\n\n}\n",
               "cartocss_version": "2.1.1",
-              "interactivity": false,
+              "interactivity": false, //window.pageConfig.tooltip.interactivity
               "sql": cartodb.$('#tpl-sql-base').html(),
               "table_name": "\"\"."
             }
