@@ -78,13 +78,13 @@
           "layers": [{
             "id": "3c6d147d-6127-4347-b396-9884022d0482",
             "type": "CartoDB",
-            "tooltip": {
-              "fields": window.pageConfig.tooltip.fields,
-              "template_name": "tooltip_light",
-              "template": cartodb.$('#tpl-tooltip-base').html(),
-              "alternative_names": {},
-              "maxHeight": 180
-            },
+            "tooltip": null, // {
+             // "fields": window.pageConfig.tooltip.fields,
+             // "template_name": "tooltip_light",
+             // "template": cartodb.$('#tpl-tooltip-base').html(),
+            //  "alternative_names": {},
+            //  "maxHeight": 180
+            //},
             "order": 1,
             "visible": true,
             "options": {
