@@ -17,7 +17,7 @@ window.onWidgetsLoaded = function() {
 
 window.pageConfig = {
   layerIds: ["us_census","env","cities_labels","separators"],
-  zoom: 8,
+  zoom: 7,
   center: [7, 5],
   basemap_opacity: 0,
   tooltip: {
