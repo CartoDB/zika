@@ -31,8 +31,8 @@
           </div>
           <div>
             <select name="select" class="js-layerSelect">
-              <option value="us_census_total" selected>Total population</option>
-              <option value="us_census" selected>Women of child bearing age</option>
+              <option value="us_census" selected>Total population</option>
+              <option value="us_census_child" selected>Women of child bearing age</option>
               <option value="us_census_ethnicity">At risk by racial demographic</option>
               <option value="us_census_poverty">Income below poverty line</option>
             </select>
@@ -59,11 +59,11 @@
     </div>
   </script>
 
-              <script type="text/template" id="tpl-sql-us_census_total">
+              <script type="text/template" id="tpl-sql-us_census">
                 SELECT *, (total_pop/(ST_Area(the_geom::geography)/1000000)) as norm_pop FROM us_census where has_risk = true
               </script>
       
-              <script type="text/template" id="tpl-css-us_census_total">
+              <script type="text/template" id="tpl-css-us_census">
                 #us_census{
                   polygon-opacity: 0.7;
                   line-width: 0;
@@ -88,7 +88,7 @@
             
               </script>
               
-              <script type="text/template" id="tpl-legend-us_census_total">
+              <script type="text/template" id="tpl-legend-us_census">
                 <div class='cartodb-legend choropleth'>
                 <div class="legend-title">Total population</div>
                 <ul>
@@ -112,12 +112,12 @@
               </script>
 
 
-  <script type="text/template" id="tpl-sql-us_census">
+  <script type="text/template" id="tpl-sql-us_census_child">
     SELECT * FROM us_census where has_risk = true
   </script>
 
 
-  <script type="text/template" id="tpl-css-us_census">
+  <script type="text/template" id="tpl-css-us_census_child">
     #us_census{
       polygon-opacity: 0.7;
       line-width: 0;
@@ -142,7 +142,7 @@
 
   </script>
 
-  <script type="text/template" id="tpl-legend-us_census">
+  <script type="text/template" id="tpl-legend-us_census_child">
     <div class='cartodb-legend choropleth'>
     <div class="legend-title">women of childbearing age</div>
     <ul>
