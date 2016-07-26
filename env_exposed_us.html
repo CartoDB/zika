@@ -31,6 +31,7 @@
           </div>
           <div>
             <select name="select" class="js-layerSelect">
+              <option value="us_census_total" selected>Total population</option>
               <option value="us_census" selected>Women of child bearing age</option>
               <option value="us_census_ethnicity">At risk by racial demographic</option>
               <option value="us_census_poverty">Income below poverty line</option>
@@ -57,6 +58,59 @@
       <h1>{{name}}</h1>
     </div>
   </script>
+
+              <script type="text/template" id="tpl-sql-us_census_total">
+                SELECT *, (total_pop/(ST_Area(the_geom::geography)/1000000)) as norm_pop FROM us_census where has_risk = true
+              </script>
+      
+              <script type="text/template" id="tpl-css-us_census_total">
+                #us_census{
+                  polygon-opacity: 0.7;
+                  line-width: 0;
+                  line-opacity: 1;
+                  polygon-fill: #ccc;
+                }
+                #us_census [ norm_pop <= 111212] {
+                   polygon-fill: #CE3139;
+                }
+                #us_census [ norm_pop <= 21220] {
+                   polygon-fill: #EE3A43;
+                }
+                #us_census [ norm_pop <= 11116] {
+                   polygon-fill: #F9A224;
+                }
+                #us_census [ norm_pop <= 4595] {
+                   polygon-fill: #FFD63D;
+                }
+                #us_census [ norm_pop <= 1420] {
+                   polygon-fill: #EEE2BD;
+                }
+            
+              </script>
+              
+              <script type="text/template" id="tpl-legend-us_census_total">
+                <div class='cartodb-legend choropleth'>
+                <div class="legend-title">Total population</div>
+                <ul>
+                	<li class="min">
+                		less
+                	</li>
+                	<li class="max">
+                		more
+                	</li>
+                	<li class="graph count_315">
+                	<div class="colors">
+                	<div class="quartile" style="background-color: #EEE2BD"></div>
+                	<div class="quartile" style="background-color: #FFD63D"></div>
+                	<div class="quartile" style="background-color: #F9A224"></div>
+                	<div class="quartile" style="background-color: #EE3A43"></div>
+                	<div class="quartile" style="background-color: #CE3139"></div>
+                	</div>
+                	</li>
+                </ul>
+                </div>
+              </script>
+
 
   <script type="text/template" id="tpl-sql-us_census">
     SELECT * FROM us_census where has_risk = true
