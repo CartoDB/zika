@@ -1,4 +1,4 @@
-# The Zika virus explained through maps
+# Zika Exposed
 
 All articles and data sources are listed here:
 https://docs.google.com/spreadsheets/d/1boY2nW5pEPmvradMjgSVoxodAwUtrPnlFBahzQyOUww/edit#gid=0
@@ -8,7 +8,7 @@ https://docs.google.com/spreadsheets/d/1boY2nW5pEPmvradMjgSVoxodAwUtrPnlFBahzQyO
 See https://en.wikipedia.org/wiki/2015%E2%80%9316_Zika_virus_epidemic
 
 
-## On the evolution of the epidemy
+## On the evolution of the epidemic
 
 > Q Dr. Fauci, how did this seem to catch us so by surprise?
 
@@ -60,7 +60,7 @@ DATA SOURCE: CDC (http://www.cdc.gov/zika/geo/united-states.html)
 No locally transmitted case has been recorded in continental US as of now, but with summer coming this is likely to happen, in Florida but also elsewhere (see further maps)
 Puerto Rico and Hawaii have been already heavily affected by the virus.
 
-## map: how the epidemy travels
+## map: how the epidemic travels
 
 <a href="http://cartodb.github.io/zika/flights.html"><img src="screenshots/flights.png"></a>
 
