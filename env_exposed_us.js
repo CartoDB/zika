@@ -10,7 +10,7 @@ window.onWidgetsLoaded = function() {
   layerSelector.on('change', function (e) {
     var tpl = e.target.value;
     window.tplSelected = tpl;
-    window.pageConfig.layerIds = [{layerId: "us_census_child", tpl: tpl},"env","cities_labels","separators"];
+    window.pageConfig.layerIds = [{layerId: "us_census", tpl: tpl},"env","cities_labels","separators"];
     window.loadDashboard();
   })
 }
