@@ -16,7 +16,7 @@ window.onWidgetsLoaded = function() {
 }
 
 window.pageConfig = {
-  layerIds: ["us_census_child","env","cities_labels","separators"],
+  layerIds: ["us_census","env","cities_labels","separators"],
   zoom: 7,
   center: [7, 5],
   basemap_opacity: 0,
